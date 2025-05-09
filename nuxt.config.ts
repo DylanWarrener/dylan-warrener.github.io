@@ -5,16 +5,7 @@ import Checker from 'vite-plugin-checker';
 export default defineNuxtConfig({
   srcDir: 'src/',
   alias: {
-    '@/abstractions': './src/abstractions',
-    '@/assets': './src/assets',
-    '@/components': './src/components',
-    '@/layouts': './src/layouts',
-    '@/middleware': './src/middleware',
-    '@/pages': './src/pages',
-    '@/plugins': './src/plugins',
-    '@/server': './src/server',
-    '@/stores': './src/stores',
-    '@/utils': './src/utils',
+    '@/src': './src'
   },
   app: {
     head: {
