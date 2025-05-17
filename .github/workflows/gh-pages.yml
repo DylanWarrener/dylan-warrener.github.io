@@ -17,14 +17,22 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Install dependencies
         run: npm install
 
       - name: Build the app for GitHub Pages
-        run: |
-          npx nuxi generate
+        run: npx nuxi generate
         env:
-          NUXT_APP_BASE_URL: / # Adjust if you use a custom subpath
+          NODE_ENV: production
+          NUXT_APP_BASE_URL: / # Or /repo-name/ if it's not a user/organization page
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
