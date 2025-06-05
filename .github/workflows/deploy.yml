@@ -16,16 +16,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install dependencies
         run: npm install
+
+      - name: Format code (Prettier)
+        run: npm run format
+
+      - name: Lint code (ESLint)
+        run: npm run lint
 
       - name: Build site
         run: npx nuxi generate
         env:
           NODE_ENV: production
-          NUXT_APP_BASE_URL: /   # since this is a user site, baseURL should be '/'
+          NUXT_APP_BASE_URL: / # since this is a user site, baseURL should be '/'
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
