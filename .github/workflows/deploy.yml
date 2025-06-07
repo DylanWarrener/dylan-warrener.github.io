@@ -1,3 +1,4 @@
+# .github/workflows/deploy.yml
 name: Build & Deploy to Production
 
 on:
@@ -8,18 +9,20 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
+      # 1) Checkout + keep the token so we can push back
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           persist-credentials: true
 
+      # 2) Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18"
 
+      # 3) Install & QA
       - name: Install dependencies
         run: npm install
 
@@ -29,16 +32,18 @@ jobs:
       - name: Lint code (ESLint)
         run: npm run lint
 
-      - name: Build site (static)
-        run: npm run generate
+      # 4) Generate into docs/
+      - name: Build static site into docs/
+        run: npx nuxi generate --output docs
         env:
           NODE_ENV: production
           NUXT_APP_BASE_URL: /
 
-      - name: Deploy to Production Branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .output/public
-          publish_branch: production
-          force_orphan: true
+      # 5) Commit docs/ back to production
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git commit -m "chore: rebuild site at ${{ github.sha }}" || echo "Nothing to commit"
+          git push origin production
