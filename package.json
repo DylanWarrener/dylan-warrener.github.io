@@ -26,11 +26,15 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
+    "@nuxt/eslint-config": "^1.4.1",
     "@nuxtjs/tailwindcss": "^7.0.0-beta.0",
     "@types/node": "^22.15.30",
     "eslint": "^9.28.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-vue": "^10.2.0",
     "globals": "^16.2.0",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite-plugin-vuetify": "^2.1.1"
   }
 }
