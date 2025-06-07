@@ -1,4 +1,4 @@
-Dylan Warrener • Full-Stack Developer Portfolio
+Dylan Warrener • Software Developer Portfolio
 Welcome! This repository hosts my personal portfolio website, built with Nuxt 3, Vue 3, Vuetify 3, Tailwind CSS, TypeScript, Pinia, and more. Its goal is to showcase my projects, skills, and experience as a full-stack developer.
 
 📦 Scripts
