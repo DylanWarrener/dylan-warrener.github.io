@@ -9,6 +9,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       # 1) Checkout + keep the token so we can push back
       - name: Checkout repository
@@ -32,14 +33,14 @@ jobs:
       - name: Lint code (ESLint)
         run: npm run lint
 
-      # 4) Generate into docs/
-      - name: Build static site into docs/
-        run: npx nuxi generate --output docs
+      # 4) Generate into dist/ (Nuxt’s default)
+      - name: Build static site into dist/
+        run: npm run generate
         env:
           NODE_ENV: production
           NUXT_APP_BASE_URL: /
 
-      # 5) Commit docs/ back to production
+      # 5) Commit dist/ back to production
       - name: Commit generated files
         run: |
           git config user.name "github-actions[bot]"
