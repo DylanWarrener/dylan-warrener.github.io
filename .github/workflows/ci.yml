@@ -1,19 +1,20 @@
-name: Build & Deploy to Production
+name: CI on Testing
 
 on:
   push:
     branches:
-      - production
+      - testing
+  pull_request:
+    branches:
+      - testing
 
 jobs:
-  build-and-deploy:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -34,11 +35,3 @@ jobs:
         env:
           NODE_ENV: production
           NUXT_APP_BASE_URL: /
-
-      - name: Deploy to Production Branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .output/public
-          publish_branch: production
-          force_orphan: true
