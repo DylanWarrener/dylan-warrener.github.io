@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build & Deploy to production
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,13 +26,13 @@ jobs:
       - name: Lint code (ESLint)
         run: npm run lint
 
-      - name: Build site
-        run: npm run generate
+      - name: Build site (static)
+        run: npm run generate # or "npx nuxi generate"
         env:
           NODE_ENV: production
-          NUXT_APP_BASE_URL: / # since this is a user site, baseURL should be '/'
+          NUXT_APP_BASE_URL: /
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to production branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
