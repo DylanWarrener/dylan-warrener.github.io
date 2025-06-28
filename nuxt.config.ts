@@ -1,5 +1,4 @@
 // nuxt.config.ts
-import vuetify from "vite-plugin-vuetify"
 import Checker from "vite-plugin-checker"
 
 export default defineNuxtConfig({
@@ -32,7 +31,6 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", href: "/favicon.ico" }],
     },
   },
-  plugins: ["~/plugins/vuetify"],
   components: [
     {
       path: "~/components",
@@ -49,8 +47,8 @@ export default defineNuxtConfig({
       {
         styles: "sass", // inject variables.scss automatically
         vuetifyOptions: {
-          // ← goes here
           theme: { defaultTheme: "light" },
+          autoImport: true,
         },
       },
     ],
@@ -73,9 +71,6 @@ export default defineNuxtConfig({
       },
     },
     plugins: [
-      vuetify({
-        autoImport: true,
-      }),
       Checker({
         vueTsc: true, // Enables Vue TypeScript checking
       }),
