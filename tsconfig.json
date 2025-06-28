@@ -1,8 +1,6 @@
 {
-  // Tell VS Code this is a Nuxt‐generated config plus our own overrides
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    // Override "preserve" → "ESNext" just so the VS Code schema is happy
     "module": "ESNext"
   }
 }
