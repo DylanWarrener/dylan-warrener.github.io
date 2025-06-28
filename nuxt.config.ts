@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@/abstractions": "./src/abstractions",
     "@/assets": "./src/assets",
     "@/components": "./src/components",
+    "@/composables": "./src/composables",
     "@/layouts": "./src/layouts",
     "@/middleware": "./src/middleware",
     "@/pages": "./src/pages",
