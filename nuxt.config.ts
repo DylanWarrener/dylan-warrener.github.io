@@ -87,14 +87,14 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/": { prerender: true }, // home
-    "/projects": { swr: 3600 }, // updates hourly  :contentReference[oaicite:1]{index=1}
+    "/projects": { swr: 3600 }, // updates hourly
     "/skills": { prerender: true },
     "/about": { prerender: true },
     "/contact": { ssr: true }, // live validation
     "/contact/**": { ssr: true },
-    "/api/contact-form": {
-      cors: true, // allow XHR from site only
-    },
+    // "/api/contact-form": {
+    //   cors: true, // allow XHR from site only
+    // },
   },
   runtimeConfig: {
     public: {
