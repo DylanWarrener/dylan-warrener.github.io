@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml
 name: Build & Deploy to Production
 
 on:
@@ -11,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1) Checkout + preserve credentials for pushing
+      # 1) Checkout + keep the token so we can push back
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
@@ -33,25 +32,18 @@ jobs:
       - name: Lint code (ESLint)
         run: npm run lint
 
-      # 4) Generate static site into `docs/`
-      - name: Build static site
-        run: npm run generate
+      # 4) Generate into docs/ (not Nuxt’s default, which is dist/)
+      - name: Build static site into dist/
+        run: npx nuxi generate --output docs
         env:
           NODE_ENV: production
-        # nuxt generate prerenders your routes into plain HTML files under `docs/` by default :contentReference[oaicite:0]{index=0}
+          NUXT_APP_BASE_URL: /
 
-      # 5) Move generated files into repo root so Pages will serve from /
-      - name: Move generated site to root
-        run: |
-          # Copy every file (including hidden) from docs/ to the checkout root
-          shopt -s dotglob       # include hidden files like .nojekyll
-          cp -R docs/* ./
-
-      # 6) Commit & push back to production
+      # 5) Commit docs/ back to production
       - name: Commit generated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "chore: rebuild site at ${{ github.sha }}" || echo "No changes to commit"
+          git add docs
+          git commit -m "chore: rebuild site at ${{ github.sha }}" || echo "Nothing to commit"
           git push origin production
