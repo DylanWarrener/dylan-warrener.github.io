@@ -1,23 +1,5 @@
 import nodemailer from "nodemailer"
-import { createError, type H3Event } from "h3"
-
-export default defineEventHandler(async (event: H3Event) => {
-  const body = await readBody(event)
-  const {
-    name,
-    email,
-    company = "",
-    subject = "",
-    message,
-  } = body as Record<string, string>
-
-  if (!name || !email || !message) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: "Missing required fields",
-    })
-  }
-import type { H3Event } from "h3"
+import { type H3Event } from "h3"
 
 export default defineEventHandler(async (event: H3Event) => {
   const body = await readBody(event)
@@ -33,15 +15,12 @@ export default defineEventHandler(async (event: H3Event) => {
     auth: {
       user: process.env.SMTP_USER || "",
       pass: process.env.SMTP_PASS || "",
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
     },
   })
 
   await transporter.sendMail({
     from: process.env.SMTP_FROM || process.env.SMTP_USER,
     to: process.env.CONTACT_EMAIL || "dqyqlqaqn@gmail.com",
-    to: "dqyqlqaqn@gmail.com",
     subject: subject ? `[Portfolio] ${subject}` : "[Portfolio] New Contact",
     text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`,
   })
