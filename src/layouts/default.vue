@@ -1,6 +1,6 @@
 <template>
   <v-app theme="light">
-    <p>Header here</p>
+    <AppNavBar />
 
     <v-main class="d-flex flex-column">
       <v-container fluid class="pa-0">
@@ -12,7 +12,7 @@
       </v-container>
     </v-main>
 
-    <p>Footer here</p>
+    <AppFooter />
   </v-app>
 </template>
 
