@@ -127,6 +127,15 @@ async function submit() {
   } catch (e) {
     error.value = true
   }
+  await useFetch("/api/contact", {
+    method: "POST",
+    body: form.value,
+  })
+
+  sent.value = true
+  formRef.value.reset()
+  formRef.value.resetValidation()
+  valid.value = false
 }
 </script>
 
