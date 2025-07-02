@@ -32,14 +32,21 @@ jobs:
       - name: Lint code (ESLint)
         run: npm run lint
 
-      # 4) Generate into docs/ (not Nuxt’s default, which is dist/)
-      - name: Build static site into dist/
+      # 4) Generate into docs/ (Nuxt + Nitro)
+      - name: Build static site into docs/
         run: npx nuxi generate --output docs
         env:
           NODE_ENV: production
           NUXT_APP_BASE_URL: /
 
-      # 5) Commit docs/ back to production
+      # 5) Flatten public/ into docs/
+      - name: Flatten docs/public into docs/
+        run: |
+          shopt -s dotglob      # include hidden files (e.g. .nojekyll)
+          mv docs/public/* docs/
+          rm -rf docs/public
+
+      # 6) Commit docs/ back to production
       - name: Commit generated files
         run: |
           git config user.name "github-actions[bot]"
