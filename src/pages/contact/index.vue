@@ -28,7 +28,7 @@
         <v-card>
           <v-card-title>Contact Form</v-card-title>
           <v-card-text>
-            <v-form v-model="valid" @submit.prevent="submit">
+            <v-form ref="formRef" v-model="valid" @submit.prevent="submit">
               <v-text-field
                 v-model="form.name"
                 label="Name"
@@ -74,6 +74,7 @@
 
 <script lang="ts" setup>
 import { ref } from "vue"
+import type { VForm } from "vuetify/components"
 
 definePageMeta({
   alias: ["/contact"],
@@ -96,17 +97,22 @@ const rules = {
 
 const valid = ref(false)
 const sent = ref(false)
+const formRef = ref<VForm | null>(null)
 
-function submit() {
-  if (!valid.value) return
+async function submit() {
+  if (!formRef.value) return
+  const isValid = await formRef.value.validate()
+  if (!isValid) return
+
+  await useFetch("/api/contact", {
+    method: "POST",
+    body: form.value,
+  })
+
   sent.value = true
-  form.value = {
-    name: "",
-    email: "",
-    company: "",
-    subject: "",
-    message: "",
-  }
+  formRef.value.reset()
+  formRef.value.resetValidation()
+  valid.value = false
 }
 </script>
 
