@@ -65,6 +65,14 @@
               variant="tonal">
               Thank you for reaching out!
             </v-alert>
+            <v-alert
+              v-if="error"
+              type="error"
+              class="mt-4"
+              border="start"
+              variant="tonal">
+              Something went wrong. Please try again later.
+            </v-alert>
           </v-card-text>
         </v-card>
       </v-col>
@@ -97,6 +105,7 @@ const rules = {
 
 const valid = ref(false)
 const sent = ref(false)
+const error = ref(false)
 const formRef = ref<VForm | null>(null)
 
 async function submit() {
@@ -104,6 +113,20 @@ async function submit() {
   const isValid = await formRef.value.validate()
   if (!isValid) return
 
+  try {
+    await useFetch("/api/contact", {
+      method: "POST",
+      body: form.value,
+    })
+
+    sent.value = true
+    error.value = false
+    formRef.value.reset()
+    formRef.value.resetValidation()
+    valid.value = false
+  } catch (e) {
+    error.value = true
+  }
   await useFetch("/api/contact", {
     method: "POST",
     body: form.value,
