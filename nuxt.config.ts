@@ -20,13 +20,14 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     head: {
-      title: "Dylan Warrener — Full-Stack Developer",
+      title: "DRWDev",
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       meta: [
         {
           name: "description",
-          content: "Portfolio showcasing projects, skills and contact.",
+          content:
+            "Portfolio for showcasing my projects, skills, and knowledge.",
         },
       ],
       link: [{ rel: "icon", href: "/favicon.ico" }],
@@ -41,7 +42,6 @@ export default defineNuxtConfig({
   modules: [
     "@pinia/nuxt", // Pinia auto-registered
     "@nuxtjs/tailwindcss",
-    "vuetify-nuxt-module",
     [
       // Simplest Vuetify 3 integration
       "vuetify-nuxt-module",
@@ -86,7 +86,7 @@ export default defineNuxtConfig({
     output: { dir: "docs" }, // GitHub Pages looks here  :contentReference[oaicite:0]{index=0}
   },
   routeRules: {
-    "/": { prerender: true }, // home
+    "/": { prerender: true },
     "/projects": { swr: 3600 }, // updates hourly
     "/skills": { prerender: true },
     "/about": { prerender: true },
