@@ -39,14 +39,19 @@ jobs:
           NODE_ENV: production
           NUXT_APP_BASE_URL: /
 
-      # 5) Flatten public/ into docs/
+      # 5) Flatten docs/public into docs/
       - name: Flatten docs/public into docs/
         run: |
           shopt -s dotglob      # include hidden files (e.g. .nojekyll)
           mv docs/public/* docs/
           rm -rf docs/public
 
-      # 6) Commit docs/ back to production
+      # 6) Prevent GitHub Pages from running Jekyll
+      - name: Add nojekyll marker
+        run: |
+          touch docs/.nojekyll
+
+      # 7) Commit docs/ back to production
       - name: Commit generated files
         run: |
           git config user.name "github-actions[bot]"
