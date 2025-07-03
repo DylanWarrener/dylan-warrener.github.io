@@ -7,6 +7,7 @@
     <v-btn to="/skills" variant="text" class="mx-2">Skills</v-btn>
     <v-btn to="/about" variant="text" class="mx-2">About</v-btn>
     <v-btn to="/contact" variant="text" class="mx-2">Contact</v-btn>
+    <v-btn href="/CV.pdf" download variant="text" class="mx-2">CV</v-btn>
   </v-app-bar>
 </template>
 <script setup lang="ts"></script>
