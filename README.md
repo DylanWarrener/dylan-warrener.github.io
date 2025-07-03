@@ -74,4 +74,8 @@ Built with ❤️ by Dylan Warrener
 dylan-warrener.github.io
 GitHub • LinkedIn • Email
 
+To enable the **CV** download link in the navigation bar, place your CV PDF at
+`public/CV.pdf` in the project root. The file will be served statically and
+downloaded when visitors click the CV button.
+
 Feel free to explore the code, submit feedback, or reach out if you have any questions or collaboration ideas!
