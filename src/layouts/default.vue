@@ -1,11 +1,11 @@
 <template>
-  <v-app theme="light">
-    <AppNavBar />
+  <v-app :theme="theme" style="border: 4px solid black">
+    <AppHeader />
 
-    <v-main class="d-flex flex-column">
-      <v-container fluid class="pa-0">
-        <v-row dense>
-          <v-col class="pa-0">
+    <v-main class="d-flex flex-column" style="border: 4px solid black">
+      <v-container fluid class="pa-0" style="border: 4px solid green">
+        <v-row dense style="border: 4px solid red">
+          <v-col class="pa-0" style="border: 4px solid blue">
             <NuxtPage />
           </v-col>
         </v-row>
@@ -16,8 +16,10 @@
   </v-app>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "home-layout",
-})
+<script setup lang="ts">
+import { ref } from "vue"
+
+const theme = ref("light")
+
+//theme.value = theme.value === "light" ? "dark" : "light"
 </script>
