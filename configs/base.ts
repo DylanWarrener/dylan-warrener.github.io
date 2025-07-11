@@ -68,7 +68,7 @@ export const baseConfig: NuxtConfig = {
   },
   css: [
     "vuetify/styles", // Vuetify base styles
-    "@/assets/global.css",
+    "../src/assets/styles/global.css",
   ],
   vite: {
     define: {
