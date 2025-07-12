@@ -3,6 +3,8 @@
 import type { NuxtConfig } from "nuxt/schema"
 import Checker from "vite-plugin-checker"
 
+import vuetifyModuleOptions from "../modules/vuetify"
+
 export const baseConfig: NuxtConfig = {
   srcDir: "src/",
   compatibilityDate: "2025-07-10",
@@ -48,18 +50,8 @@ export const baseConfig: NuxtConfig = {
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxt/test-utils",
-    "@pinia/nuxt", // Pinia auto-registered
-    [
-      // Simplest Vuetify 3 integration
-      "vuetify-nuxt-module",
-      {
-        styles: "sass", // inject variables.scss automatically
-        vuetifyOptions: {
-          theme: { defaultTheme: "light" },
-          autoImport: true,
-        },
-      },
-    ],
+    "@pinia/nuxt", // Pinia auto-registeyeah
+    "vuetify-nuxt-module",
   ],
   typescript: {
     typeCheck: true,
@@ -67,19 +59,19 @@ export const baseConfig: NuxtConfig = {
     shim: false,
   },
   css: [
-    "vuetify/styles", // Vuetify base styles
-    "../src/assets/styles/global.css",
+    "vuetify/styles", // 1. Vuetify's styles (lowest priority)
+    "@/assets/styles/variables.scss", // 2. SCSS overrides (if any, e.g. color SASS vars)
+    "@/assets/styles/global.css", // 3. Your custom styles (highest priority)
   ],
+  vuetify: {
+    moduleOptions: {
+      styles: "sass", // Enables SASS variable customization
+    },
+    vuetifyOptions: vuetifyModuleOptions as any, // <- safest for now
+  },
   vite: {
     define: {
       "process.env.DEBUG": false, // Required for Vuetify
-    },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `@use "./src/assets/styles/variables.scss" as *;`,
-        },
-      },
     },
     plugins: [
       // Enables Vue TypeScript checking
