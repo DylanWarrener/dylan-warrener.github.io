@@ -17,13 +17,12 @@
           <p>Button Text</p>
           <v-hover>
             <template #default="{ isHovering, props }">
-              <v-btn
+              <BaseBtn
                 variant="flat"
                 size="small"
+                text="Normal Button"
                 :class="`bg-primary ${isHovering ? 'bg-secondary' : ''}`"
-                v-bind="props">
-                <span>Normal Button</span>
-              </v-btn>
+                v-bind="props" />
             </template>
           </v-hover>
         </div>
@@ -33,14 +32,12 @@
           <p>Button Icon</p>
           <v-hover>
             <template #default="{ isHovering, props }">
-              <v-btn
-                icon
+              <BaseBtn
+                icon="mdi-home"
                 variant="flat"
                 size="x-small"
-                :class="`bg-primary ${isHovering ? 'bg-secondary' : ''}`"
-                v-bind="props">
-                <v-icon>mdi-home</v-icon>
-              </v-btn>
+                :class="`${isHovering ? 'bg-secondary' : 'bg-primary'}`"
+                v-bind="props" />
             </template>
           </v-hover>
         </div>
@@ -62,13 +59,12 @@
           <p>To a Section</p>
           <v-hover>
             <template #default="{ isHovering, props }">
-              <v-btn
+              <BaseBtn
                 variant="flat"
                 size="small"
+                text="Normal Button"
                 :class="`${isHovering ? 'bg-secondary' : 'bg-primary'}`"
-                v-bind="props">
-                <span>Normal Button</span>
-              </v-btn>
+                v-bind="props" />
             </template>
           </v-hover>
         </div>
@@ -78,25 +74,85 @@
           <p>To a Page</p>
           <v-hover>
             <template #default="{ isHovering, props }">
-              <v-btn
+              <BaseBtn
                 variant="flat"
                 size="small"
+                text="To Page"
+                icon-append="mdi-arrow-right"
+                :icon-append-class="`btn-icon-transition ${isHovering ? 'btn-icon-move' : ''}`"
                 :class="`${isHovering ? 'bg-secondary' : 'bg-primary'}`"
-                v-bind="props">
-                <span>To Page</span>
-                <template #append>
-                  <v-icon
-                    :class="`btn-icon-transition ${isHovering ? 'btn-icon-move' : ''}`">
-                    mdi-arrow-right
-                  </v-icon>
-                </template>
-              </v-btn>
+                v-bind="props" />
             </template>
           </v-hover>
+        </div>
+        <div
+          class="d-flex flex-column justify-center align-center"
+          style="border: 2px solid orange">
+          <p>Back to Top</p>
+          <v-hover>
+            <template #default="{ isHovering, props }">
+              <BaseBtn
+                icon="mdi-chevron-up"
+                variant="flat"
+                size="x-small"
+                :class="`${isHovering ? 'bg-secondary' : 'bg-primary'}`"
+                v-bind="props" />
+            </template>
+          </v-hover>
+        </div>
+        <div
+          class="d-flex flex-column justify-center align-center"
+          style="border: 2px solid orange">
+          <p>Social Button</p>
+          <div v-for="(svg, index) in socials" :key="index">
+            <v-hover>
+              <template #default="{ isHovering, props }">
+                <v-btn
+                  icon
+                  rel="noopener"
+                  target="_blank"
+                  variant="flat"
+                  size="x-small"
+                  :aria-label="svg.alt"
+                  :href="svg.href"
+                  :class="`mb-2 ${isHovering ? 'bg-secondary' : 'bg-primary'}`"
+                  v-bind="props">
+                  <Icon :name="svg.icon" size="24" :alt="svg.alt" />
+                </v-btn>
+              </template>
+            </v-hover>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { reactive } from "vue"
+
+const socials = reactive([
+  {
+    icon: "mdi:facebook",
+    alt: "Facebook Logo Icon",
+    href: "https://www.facebook.com/profile.php?id=61551522434899",
+  },
+  {
+    icon: "mdi:instagram",
+    alt: "Instagram logo icon",
+    href: "https://www.instagram.com/dylanswork/",
+  },
+  {
+    icon: "mdi:youtube",
+    alt: "YouTube logo icon",
+    href: "https://www.youtube.com/@dylanwarrener5857",
+  },
+  {
+    icon: "mdi:linkedin",
+    alt: "LinkedIn logo icon",
+    href: "https://www.linkedin.com/in/dylan-w-a523a112a/",
+  },
+])
+</script>
 
 <style scoped></style>
