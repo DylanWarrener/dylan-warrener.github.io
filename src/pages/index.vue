@@ -5,6 +5,6 @@
 <script setup lang="ts">
 definePageMeta({
   //layout: "temp-typography",
-  layout: "temp-buttons",
+  //layout: "temp-buttons",
 })
 </script>

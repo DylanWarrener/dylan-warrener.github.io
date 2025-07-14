@@ -18,8 +18,6 @@
           <v-hover>
             <template #default="{ isHovering, props }">
               <BaseBtn
-                variant="flat"
-                size="small"
                 text="Normal Button"
                 :class="`bg-primary ${isHovering ? 'bg-secondary' : ''}`"
                 v-bind="props" />
@@ -35,7 +33,6 @@
               <BaseBtn
                 icon="mdi-home"
                 variant="flat"
-                size="x-small"
                 :class="`${isHovering ? 'bg-secondary' : 'bg-primary'}`"
                 v-bind="props" />
             </template>
@@ -107,8 +104,7 @@
           <div v-for="(svg, index) in socials" :key="index">
             <v-hover>
               <template #default="{ isHovering, props }">
-                <v-btn
-                  icon
+                <BaseBtn
                   rel="noopener"
                   target="_blank"
                   variant="flat"
@@ -116,9 +112,9 @@
                   :aria-label="svg.alt"
                   :href="svg.href"
                   :class="`mb-2 ${isHovering ? 'bg-secondary' : 'bg-primary'}`"
-                  v-bind="props">
-                  <Icon :name="svg.icon" size="24" :alt="svg.alt" />
-                </v-btn>
+                  :nuxt-icon="svg.icon"
+                  :nuxt-icon-alt="svg.alt"
+                  v-bind="props" />
               </template>
             </v-hover>
           </div>
