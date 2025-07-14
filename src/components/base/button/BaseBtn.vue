@@ -5,7 +5,7 @@
     :size="computed_size"
     :color="computed_color"
     :class="computed_class"
-    :style="computed_style"
+    :style="style"
     v-ripple="{ class: rippleColor }">
     <template #prepend>
       <v-icon
@@ -116,12 +116,6 @@ const computed_color = computed(() => {
 const computed_class = computed(() => {
   const arr: string[] = []
   if (props.class) arr.push(...props.class.split(" "))
-  return arr
-})
-
-const computed_style = computed(() => {
-  const arr: string[] = []
-  if (props.style) arr.push(...props.style.split(" "))
   return arr
 })
 

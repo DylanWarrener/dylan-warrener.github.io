@@ -8,7 +8,6 @@
     <v-card class="pa-0 ma-0 h-100 rounded-0 d-flex flex-column">
       <v-toolbar
         class="px-2 d-flex flex-shrink-1 flex-grow-0 bg-transparent"
-        density="comfortable"
         v-if="isMobile">
         <v-spacer></v-spacer>
         <v-hover v-if="isMobile">

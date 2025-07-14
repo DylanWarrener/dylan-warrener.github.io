@@ -2,12 +2,10 @@
   <v-app :theme="theme">
     <AppHeader />
 
-    <AppNavigation />
+    <!-- <AppNavigation /> -->
 
-    <v-main class="pt-13" style="border: 4px solid black">
-      <v-container fluid class="pa-0">
-        <NuxtPage />
-      </v-container>
+    <v-main class="pt-15" style="border: 4px solid black">
+      <NuxtPage />
     </v-main>
 
     <AppFooter />
