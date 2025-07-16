@@ -14,8 +14,8 @@
           <template #default="{ isHovering, props: hoverProps }">
             <BaseBtn
               :class="`${isHovering ? 'bg-grey-lighten-5' : 'bg-default'}`"
-              nuxt-icon="mdi:backburger"
-              :nuxt-icon-alt="nuxtIconAlt"
+              icon="mdi:backburger"
+              :icon-alt="iconAlt"
               v-bind="hoverProps"
               @click="toggleDrawer" />
           </template>
@@ -25,9 +25,9 @@
       <v-divider></v-divider>
 
       <v-card-text
-        class="pa-2 d-flex flex-column flex-shrink-1 flex-grow-1"
+        class="flex-shrink-1 flex-grow-1 pa-4 d-flex flex-column overflow-y-auto"
         style="border: 2px solid black">
-        <AppLinks v-if="isMobile" class="flex-column" />
+        <AppLinks v-if="isMobile" class="flex-column align-center" />
       </v-card-text>
 
       <v-divider></v-divider>
@@ -53,7 +53,7 @@ const display = useDisplay()
 const navDrawer = useNavDrawer()
 
 const isMobile = computed(() => display.smAndDown.value)
-const nuxtIconAlt = computed(
+const iconAlt = computed(
   () => `${navDrawer.value ? "Menu Opened" : "Menu Closed"}`,
 )
 

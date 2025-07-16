@@ -1,17 +1,18 @@
 <template>
   <v-btn
-    :icon="!!icon || !!nuxtIcon"
+    :class="computed_class"
+    :color="computed_color"
     :variant="computed_variant"
     :size="computed_size"
-    :color="computed_color"
-    :class="computed_class"
     :width="computed_width"
+    :icon="!!icon"
     v-ripple="{ class: rippleColor }">
-    <template #prepend>
-      <v-icon
-        :color="iconPrependColor"
-        :icon="iconPrepend"
-        v-if="iconPrepend"></v-icon>
+    <template #prepend v-if="prependIcon">
+      <Icon
+        :class="computed_prependIconClass"
+        :size="prependIconSize"
+        :name="prependIcon"
+        v-if="prependIcon" />
     </template>
 
     <!-- Default -->
@@ -21,24 +22,24 @@
       v-text="text"
       v-if="text"></span>
 
-    <v-icon :class="iconClass" :color="iconColor" :icon="icon" v-if="icon" />
     <Icon
-      :class="nuxtIconClass"
-      :size="nuxtIconSize"
-      :name="nuxtIcon"
-      :alt="nuxtIconAlt"
-      v-if="nuxtIcon" />
+      :class="computed_iconClass"
+      :size="iconSize"
+      :name="icon"
+      :alt="iconAlt"
+      v-if="icon" />
 
     <v-img :src="src" :alt="alt" v-if="src && alt"></v-img>
 
     <slot name="custom-svg" class="custom-svg"></slot>
 
-    <template #append>
-      <v-icon
-        :class="computed_classIconAppend"
-        :color="iconAppendColor"
-        :icon="iconAppend"
-        v-if="iconAppend"></v-icon>
+    <template #append v-if="appendIcon">
+      <Icon
+        :class="computed_appendIconClass"
+        :size="appendIconSize"
+        :name="appendIcon"
+        :alt="appendIconAlt"
+        v-if="appendIcon" />
     </template>
   </v-btn>
 </template>
@@ -64,8 +65,10 @@ const props = defineProps({
   rippleColor: { type: String, required: false, default: "text-accent" },
 
   // Append
-  iconAppendClass: { type: String, required: false },
-  iconAppend: { type: String, required: false },
+  appendIconClass: { type: String, required: false },
+  appendIconSize: { type: String, required: false },
+  appendIconAlt: { type: String, required: false },
+  appendIcon: { type: String, required: false },
   iconAppendColor: { type: String, required: false },
 
   // Default
@@ -73,13 +76,10 @@ const props = defineProps({
   textStyle: { type: String, required: false },
   text: { type: String, required: false },
   iconClass: { type: String, required: false },
-  iconStyle: { type: String, required: false },
+  iconSize: { type: String, required: false, default: "24" },
   icon: { type: String, required: false },
+  iconAlt: { type: String, required: false },
   iconColor: { type: String, required: false },
-  nuxtIconClass: { type: String, required: false },
-  nuxtIconSize: { type: String, required: false, default: "24" },
-  nuxtIcon: { type: String, required: false },
-  nuxtIconAlt: { type: String, required: false },
   src: { type: String, required: false },
   alt: { type: String, required: false },
 
@@ -87,11 +87,11 @@ const props = defineProps({
   loader: { type: String, required: false },
 
   // Prepend
-  iconPrepend: { type: String, required: false },
-  iconPrependColor: { type: String, required: false },
+  prependIconClass: { type: String, required: false },
+  prependIconSize: { type: String, required: false },
+  prependIcon: { type: String, required: false },
+  prependIconColor: { type: String, required: false },
 })
-
-// --- Computed props for derived values ---
 
 const computed_variant = computed<VBtnVariant>(() => {
   if (props.variant) return props.variant as VBtnVariant
@@ -114,9 +114,9 @@ const computed_color = computed(() => {
 })
 
 const computed_class = computed(() => {
-  const arr: string[] = []
+  const arr: string[] = ["d-flex"]
   if (props.class) arr.push(props.class)
-  if (props.text) arr.push("px-2 py-1")
+  if (props.text) arr.push("pa-4")
   else if (props.icon) arr.push("pa-2")
   return arr.join(" ")
 })
@@ -127,9 +127,21 @@ const computed_width = computed(() => {
   return undefined
 })
 
-const computed_classIconAppend = computed(() => {
+const computed_prependIconClass = computed(() => {
   const arr: string[] = []
-  if (props.iconAppendClass) arr.push(...props.iconAppendClass.split(" "))
-  return arr
+  if (props.prependIconClass) arr.push(props.prependIconClass)
+  return arr.join(" ")
+})
+
+const computed_iconClass = computed(() => {
+  const arr: string[] = []
+  if (props.iconClass) arr.push(props.iconClass)
+  return arr.join(" ")
+})
+
+const computed_appendIconClass = computed(() => {
+  const arr: string[] = []
+  if (props.appendIconClass) arr.push(props.appendIconClass)
+  return arr.join(" ")
 })
 </script>
