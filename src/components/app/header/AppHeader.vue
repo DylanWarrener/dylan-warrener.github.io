@@ -5,67 +5,31 @@
     elevation="0"
     scroll-behavior="hide">
     <span class="text-h4">Dylan Warrener</span>
-    <!-- <v-divider vertical class="my-4 px-2"></v-divider>
-    <v-hover>
+    <v-spacer></v-spacer>
+    <v-hover v-if="isMobile">
       <template #default="{ isHovering, props }">
         <BaseBtn
+          nuxt-icon="mdi:hamburger-menu"
           :class="`${isHovering ? 'bg-grey-lighten-5' : 'bg-default'}`"
-          :nuxt-icon="menuIcon"
-          :nuxt-icon-alt="`${useNavStore.drawer ? 'Menu Opened' : 'Menu Closed'}`"
+          :nuxt-icon-alt="nuxtIconAlt"
           v-bind="props"
-          @click="useNavStore.toggleDrawer()" />
+          @click="toggleDrawer" />
       </template>
-    </v-hover> -->
-    <v-spacer></v-spacer>
-    <div class="d-flex gap-4" style="border: 2px solid red">
-      <v-hover :key="index" v-for="(navItem, index) in navItems">
-        <template #default="{ props }">
-          <BaseBtn
-            class="text-default"
-            :text="navItem.text"
-            :to="navItem.link"
-            v-bind="props" />
-        </template>
-      </v-hover>
-    </div>
+    </v-hover>
+    <AppLinks v-else />
   </v-app-bar>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
-//import { useDisplay } from "vuetify"
-//import { useNavigationStore } from "@/stores/navigation"
+import { useNavDrawer } from "@/composables/useUI"
 
-//const display = useDisplay()
+const display = useDisplay()
+const navDrawer = useNavDrawer()
 
-//const useNavStore = useNavigationStore()
+const isMobile = computed(() => display.smAndDown.value)
+const nuxtIconAlt = computed(
+  () => `${navDrawer.value ? "Menu Opened" : "Menu Closed"}`,
+)
 
-const navItems = ref([
-  {
-    text: "Pojects",
-    link: "/projects",
-  },
-  {
-    text: "Skills",
-    link: "/skills",
-  },
-  {
-    text: "About",
-    link: "/about",
-  },
-  {
-    text: "Contact",
-    link: "/contact",
-  },
-  {
-    text: "CV",
-    link: "",
-  },
-])
-
-// const isMobile = computed(() => display.smAndDown.value)
-// const menuIcon = computed(() => {
-//   if (!isMobile.value && useNavStore.drawer) return "mdi:backburger"
-//   return "mdi:hamburger-menu"
-// })
+const toggleDrawer = () => (navDrawer.value = !navDrawer.value)
 </script>

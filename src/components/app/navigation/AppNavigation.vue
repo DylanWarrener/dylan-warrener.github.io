@@ -1,33 +1,33 @@
 <template>
   <v-navigation-drawer
+    temporary
+    :style="{ height: `${navDrawer ? '100vh' : '0'}` }"
     class="bg-transparent above-everything"
-    :style="style"
-    :location="drawerLocation"
-    @update:model-value="useNavStore.setDrawer"
-    v-model="drawer">
+    location="bottom"
+    v-model="navDrawer">
     <v-card class="pa-0 ma-0 h-100 rounded-0 d-flex flex-column">
       <v-toolbar
-        class="px-2 d-flex flex-shrink-1 flex-grow-0 bg-transparent"
-        v-if="isMobile">
+        class="px-2 d-flex flex-shrink-1 flex-grow-0"
+        color="blue-darken-3">
         <v-spacer></v-spacer>
-        <v-hover v-if="isMobile">
-          <template #default="{ isHovering, props }">
+        <v-hover>
+          <template #default="{ isHovering, props: hoverProps }">
             <BaseBtn
               :class="`${isHovering ? 'bg-grey-lighten-5' : 'bg-default'}`"
               nuxt-icon="mdi:backburger"
-              :nuxt-icon-alt="`${drawer ? 'Menu Opened' : 'Menu Closed'}`"
-              v-bind="props"
-              @click="useNavStore.toggleDrawer()" />
+              :nuxt-icon-alt="nuxtIconAlt"
+              v-bind="hoverProps"
+              @click="toggleDrawer" />
           </template>
         </v-hover>
       </v-toolbar>
 
       <v-divider></v-divider>
 
-      <v-card-text class="pa-2 d-flex flex-column flex-shrink-1 flex-grow-1">
-        <v-list nav selectable>
-          <v-list-item></v-list-item>
-        </v-list>
+      <v-card-text
+        class="pa-2 d-flex flex-column flex-shrink-1 flex-grow-1"
+        style="border: 2px solid black">
+        <AppLinks v-if="isMobile" class="flex-column" />
       </v-card-text>
 
       <v-divider></v-divider>
@@ -47,21 +47,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue"
-import { useDisplay } from "vuetify"
-
-import { useNavigationStore } from "@/stores/navigation"
+import { useNavDrawer } from "@/composables/useUI"
 
 const display = useDisplay()
-const useNavStore = useNavigationStore()
+const navDrawer = useNavDrawer()
 
 const isMobile = computed(() => display.smAndDown.value)
-const drawer = computed(() => useNavStore.drawer)
-const drawerLocation = computed(() => (isMobile.value ? "bottom" : "left"))
-const style = computed(() => {
-  if (drawer.value && isMobile.value) {
-    return { height: "100vh" }
-  }
-  return {}
-})
+const nuxtIconAlt = computed(
+  () => `${navDrawer.value ? "Menu Opened" : "Menu Closed"}`,
+)
+
+const toggleDrawer = () => (navDrawer.value = !navDrawer.value)
 </script>

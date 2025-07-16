@@ -5,7 +5,7 @@
     :size="computed_size"
     :color="computed_color"
     :class="computed_class"
-    :style="style"
+    :width="computed_width"
     v-ripple="{ class: rippleColor }">
     <template #prepend>
       <v-icon
@@ -60,7 +60,7 @@ const props = defineProps({
   size: { type: String, required: false },
   color: { type: String, required: false },
   class: { type: String, required: false },
-  style: { type: String, required: false },
+  width: { type: String, required: false },
   rippleColor: { type: String, required: false, default: "text-accent" },
 
   // Append
@@ -115,8 +115,16 @@ const computed_color = computed(() => {
 
 const computed_class = computed(() => {
   const arr: string[] = []
-  if (props.class) arr.push(...props.class.split(" "))
-  return arr
+  if (props.class) arr.push(props.class)
+  if (props.text) arr.push("px-2 py-1")
+  else if (props.icon) arr.push("pa-2")
+  return arr.join(" ")
+})
+
+const computed_width = computed(() => {
+  if (props.width) return props.width
+  else if (props.text) return "100"
+  return undefined
 })
 
 const computed_classIconAppend = computed(() => {
