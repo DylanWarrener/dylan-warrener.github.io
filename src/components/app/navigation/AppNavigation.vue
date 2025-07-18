@@ -6,17 +6,15 @@
     location="bottom"
     v-model="navDrawer">
     <v-card class="pa-0 ma-0 h-100 rounded-0 d-flex flex-column">
-      <v-toolbar
-        class="px-2 d-flex flex-shrink-1 flex-grow-0"
-        color="blue-darken-3">
+      <v-toolbar class="px-4 d-flex flex-shrink-1 flex-grow-0" color="blue-darken-3">
         <v-spacer></v-spacer>
         <v-hover>
-          <template #default="{ isHovering, props: hoverProps }">
+          <template #default="{ isHovering, props }">
             <BaseBtn
-              :class="`${isHovering ? 'bg-grey-lighten-5' : 'bg-default'}`"
+              :class="`${isHovering ? 'bg-grey-lighten-5' : 'bg-transparent'}`"
               icon="mdi:backburger"
               :icon-alt="iconAlt"
-              v-bind="hoverProps"
+              v-bind="props"
               @click="toggleDrawer" />
           </template>
         </v-hover>
@@ -47,15 +45,13 @@
 </template>
 
 <script setup lang="ts">
-import { useNavDrawer } from "@/composables/useUI"
+import { useNavDrawer } from '@/composables/useUI'
 
 const display = useDisplay()
 const navDrawer = useNavDrawer()
 
 const isMobile = computed(() => display.smAndDown.value)
-const iconAlt = computed(
-  () => `${navDrawer.value ? "Menu Opened" : "Menu Closed"}`,
-)
+const iconAlt = computed(() => `${navDrawer.value ? 'Menu Opened' : 'Menu Closed'}`)
 
 const toggleDrawer = () => (navDrawer.value = !navDrawer.value)
 </script>

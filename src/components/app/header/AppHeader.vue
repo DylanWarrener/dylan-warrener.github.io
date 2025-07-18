@@ -1,35 +1,41 @@
 <template>
-  <v-app-bar
-    class="px-2"
-    color="blue-darken-3"
-    elevation="0"
-    scroll-behavior="hide">
-    <span class="text-h4">Dylan Warrener</span>
+  <v-app-bar class="px-4" color="blue-darken-3" elevation="0" scroll-behavior="hide">
+    <NuxtLink class="text-inverted text-button text-decoration-none" to="/">
+      Dylan Warrener
+    </NuxtLink>
     <v-spacer></v-spacer>
     <v-hover v-if="isMobile">
       <template #default="{ isHovering, props }">
         <BaseBtn
-          nuxt-icon="mdi:hamburger-menu"
-          :class="`${isHovering ? 'bg-grey-lighten-5' : 'bg-default'}`"
-          :nuxt-icon-alt="nuxtIconAlt"
+          icon="mdi:hamburger-menu"
+          :class="`${isHovering ? 'bg-grey-lighten-5' : 'bg-transparent'}`"
+          :icon-alt="nuxtIconAlt"
           v-bind="props"
           @click="toggleDrawer" />
       </template>
     </v-hover>
-    <AppLinks v-else />
+    <AppLinks v-else class="mr-4" />
+    <v-hover v-if="!isMobile">
+      <template #default="{ isHovering, props }">
+        <BaseBtn
+          :class="`${isHovering ? 'bg-inverted text-default' : ''}`"
+          variant="outlined"
+          width="150"
+          text="Download CV"
+          v-bind="props" />
+      </template>
+    </v-hover>
   </v-app-bar>
 </template>
 
 <script setup lang="ts">
-import { useNavDrawer } from "@/composables/useUI"
+import { useNavDrawer } from '@/composables/useUI'
 
 const display = useDisplay()
 const navDrawer = useNavDrawer()
 
 const isMobile = computed(() => display.smAndDown.value)
-const nuxtIconAlt = computed(
-  () => `${navDrawer.value ? "Menu Opened" : "Menu Closed"}`,
-)
+const nuxtIconAlt = computed(() => `${navDrawer.value ? 'Menu Opened' : 'Menu Closed'}`)
 
 const toggleDrawer = () => (navDrawer.value = !navDrawer.value)
 </script>

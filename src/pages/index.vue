@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    class="pa-0 d-flex flex-column ga-4"
-    style="border: 2px solid black">
+  <v-container fluid class="pa-0 d-flex flex-column ga-4" style="border: 2px solid black">
     <!-- CTA -->
     <v-row dense>
       <v-col class="pa-0">
@@ -15,9 +12,7 @@
       <v-col style="border: 2px solid blue">
         <v-container style="border: 2px solid black">
           <v-row style="border: 2px solid red">
-            <v-col style="border: 2px solid blue">
-              Recent Projects Section
-            </v-col>
+            <v-col style="border: 2px solid blue"> Recent Projects Section </v-col>
           </v-row>
         </v-container>
       </v-col>
@@ -26,8 +21,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  //layout: "temp-typography",
-  //layout: "temp-buttons",
+useHead({
+  title: 'Home',
 })
 </script>

@@ -1,14 +1,23 @@
-import colors from "vuetify/util/colors"
+import colors from 'vuetify/util/colors'
 
 const lightTheme = {
-  default: "",
+  dark: false,
+  colors: {
+    default: colors.shades.black,
+    inverted: colors.shades.white,
+  },
 }
+
 const darkTheme = {
-  default: "",
+  dark: false,
+  colors: {
+    default: colors.shades.white,
+    inverted: colors.shades.black,
+  },
 }
 
 const theme = {
-  defaultTheme: "light",
+  defaultTheme: 'light',
   themes: {
     light: lightTheme,
     dark: darkTheme,

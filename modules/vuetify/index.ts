@@ -1,10 +1,8 @@
-import icons from "./icons"
-import theme from "./themes"
-import typography from "./typography"
+import theme from './themes'
+import typography from './typography'
 
 const vuetify = {
-  //icons,
-  //theme,
+  theme,
   typography,
   autoImport: true,
 }

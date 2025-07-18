@@ -3,22 +3,22 @@ export const useNavLinks = () =>
     "nav-links",
     () => [
       {
-        prependIcon: "ix:project-duplicate",
+        prependIcon: "fa-solid:project-diagram",
         text: "Pojects",
         link: "/projects",
       },
       {
-        prependIcon: "",
+        prependIcon: "carbon:skill-level-advanced",
         text: "Skills",
         link: "/skills",
       },
       {
-        prependIcon: "",
+        prependIcon: "ix:about-filled",
         text: "About",
         link: "/about",
       },
       {
-        prependIcon: "",
+        prependIcon: "weui:contacts-filled",
         text: "Contact",
         link: "/contact",
       },
