@@ -20,11 +20,12 @@
 
 /* ---------- ROOT ELEMENTS ---------- */
 html {
-  font-size: 62.5%;
+  font-size: 62.5% !important;
 }
 
 /* ---------- VUETIFY TYPOGRAPHY ---------- */
 .text-h1 {
+  padding: 1.2rem 0 !important;
   font-size: var(--font-size-h1) !important;
 }
 .text-h2 {
@@ -72,17 +73,43 @@ html {
 .text-disabled {
   font-size: var(--font-size-disabled) !important;
 }
+/* In your global CSS */
+.v-app,
+.v-main {
+  position: relative;
+  z-index: 1; /* Stays above the bg-img */
+  background: transparent !important;
+}
 
 /* ---------- CUSTOM CLASSES ---------- */
+/* BACKGROUNDS */
+.bg-img {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+}
+.fade-top {
+  -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
+  mask-image: linear-gradient(to top, black 80%, transparent 100%);
+}
+.fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
 /* Z-INDEX */
 .above-everything {
   z-index: 9999 !important;
 }
 /* TRANSITIONS */
 .btn-icon-transition {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform: translateX(0) !important;
 }
 .btn-icon-move {
-  transform: translateX(25%);
+  transform: translateX(25%) !important;
 }

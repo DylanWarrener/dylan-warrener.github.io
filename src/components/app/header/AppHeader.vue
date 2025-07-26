@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="px-4" color="blue-darken-3" elevation="0" scroll-behavior="hide">
+  <v-app-bar class="px-4 bg-transparent d-flex" elevation="0" scroll-behavior="hide">
     <NuxtLink class="text-inverted text-button text-decoration-none" to="/">
       Dylan Warrener
     </NuxtLink>

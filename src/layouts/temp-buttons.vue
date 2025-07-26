@@ -1,19 +1,13 @@
 <template>
-  <div
-    class="d-flex flex-column align-start ga-4"
-    style="border: 2px solid red">
+  <div class="d-flex flex-column align-start ga-4" style="border: 4px solid red">
     <!------------ Base Buttons ------------>
-    <div
-      class="w-100 d-flex flex-column justify-center"
-      style="border: 2px solid blue">
+    <div class="w-100 d-flex flex-column justify-center" style="border: 4px solid blue">
       <p class="text-center">Base Buttons</p>
       <br />
-      <div
-        class="d-flex flex-wrap justify-center ga-4"
-        style="border: 2px solid green">
+      <div class="d-flex flex-wrap justify-center ga-4" style="border: 4px solid green">
         <div
           class="d-flex flex-column justify-center align-center"
-          style="border: 2px solid orange">
+          style="border: 4px solid orange">
           <p>Button Text</p>
           <v-hover>
             <template #default="{ isHovering, props }">
@@ -26,7 +20,7 @@
         </div>
         <div
           class="d-flex flex-column justify-center align-center"
-          style="border: 2px solid yellow">
+          style="border: 4px solid yellow">
           <p>Button Icon</p>
           <v-hover>
             <template #default="{ isHovering, props }">
@@ -42,17 +36,13 @@
     </div>
 
     <!-- Specific Buttons -->
-    <div
-      class="w-100 d-flex flex-column justify-center"
-      style="border: 2px solid blue">
+    <div class="w-100 d-flex flex-column justify-center" style="border: 4px solid blue">
       <p class="text-center">Specific Buttons</p>
       <br />
-      <div
-        class="d-flex flex-wrap justify-center ga-4"
-        style="border: 2px solid green">
+      <div class="d-flex flex-wrap justify-center ga-4" style="border: 4px solid green">
         <div
           class="d-flex flex-column justify-center align-center"
-          style="border: 2px solid orange">
+          style="border: 4px solid orange">
           <p>To a Section</p>
           <v-hover>
             <template #default="{ isHovering, props }">
@@ -67,7 +57,7 @@
         </div>
         <div
           class="d-flex flex-column justify-center align-center"
-          style="border: 2px solid orange">
+          style="border: 4px solid orange">
           <p>To a Page</p>
           <v-hover>
             <template #default="{ isHovering, props }">
@@ -84,7 +74,7 @@
         </div>
         <div
           class="d-flex flex-column justify-center align-center"
-          style="border: 2px solid orange">
+          style="border: 4px solid orange">
           <p>Back to Top</p>
           <v-hover>
             <template #default="{ isHovering, props }">
@@ -99,7 +89,7 @@
         </div>
         <div
           class="d-flex flex-column justify-center align-center"
-          style="border: 2px solid orange">
+          style="border: 4px solid orange">
           <p>Social Button</p>
           <div v-for="(svg, index) in socials" :key="index">
             <v-hover>
@@ -125,28 +115,28 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue"
+import { reactive } from 'vue'
 
 const socials = reactive([
   {
-    icon: "mdi:facebook",
-    alt: "Facebook Logo Icon",
-    href: "https://www.facebook.com/profile.php?id=61551522434899",
+    icon: 'mdi:facebook',
+    alt: 'Facebook Logo Icon',
+    href: 'https://www.facebook.com/profile.php?id=61551522434899',
   },
   {
-    icon: "mdi:instagram",
-    alt: "Instagram logo icon",
-    href: "https://www.instagram.com/dylanswork/",
+    icon: 'mdi:instagram',
+    alt: 'Instagram logo icon',
+    href: 'https://www.instagram.com/dylanswork/',
   },
   {
-    icon: "mdi:youtube",
-    alt: "YouTube logo icon",
-    href: "https://www.youtube.com/@dylanwarrener5857",
+    icon: 'mdi:youtube',
+    alt: 'YouTube logo icon',
+    href: 'https://www.youtube.com/@dylanwarrener5857',
   },
   {
-    icon: "mdi:linkedin",
-    alt: "LinkedIn logo icon",
-    href: "https://www.linkedin.com/in/dylan-w-a523a112a/",
+    icon: 'mdi:linkedin',
+    alt: 'LinkedIn logo icon',
+    href: 'https://www.linkedin.com/in/dylan-w-a523a112a/',
   },
 ])
 </script>

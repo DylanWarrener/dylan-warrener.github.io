@@ -24,7 +24,7 @@
 
       <v-card-text
         class="flex-shrink-1 flex-grow-1 pa-4 d-flex flex-column overflow-y-auto"
-        style="border: 2px solid black">
+        style="border: 4px solid black">
         <AppLinks v-if="isMobile" class="flex-column align-center" />
       </v-card-text>
 
