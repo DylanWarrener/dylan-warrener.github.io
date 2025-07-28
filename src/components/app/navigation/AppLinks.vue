@@ -1,5 +1,5 @@
 <template>
-  <div :class="`d-flex ga-4 ${computed_class}`">
+  <div :class="`text-inverted d-flex ga-4 ${computed_class}`">
     <v-hover :key="index" v-for="(navItem, index) in navLinks">
       <template #default="{ isHovering, props }">
         <BaseBtn

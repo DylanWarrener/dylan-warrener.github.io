@@ -18,7 +18,8 @@
     <v-hover v-if="!isMobile">
       <template #default="{ isHovering, props }">
         <BaseBtn
-          :class="`${isHovering ? 'bg-inverted text-default' : ''}`"
+          :class="`${isHovering ? '' : ''}`"
+          color="text-default"
           variant="outlined"
           width="150"
           text="Download CV"
