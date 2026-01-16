@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host 0.0.0.0 --port 3000",
     "build:dev": "nuxt build --envName development",
     "build:prod": "nuxt build --envName production",
     "build:staging": "nuxt build --envName staging",
