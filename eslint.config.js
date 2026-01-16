@@ -1,19 +1,19 @@
-import { defineConfig } from "eslint/config"
-import js from "@eslint/js"
+import { defineConfig } from 'eslint/config'
+import js from '@eslint/js'
 
 export default defineConfig([
   {
-    ignores: ["node_modules/**", ".nuxt/**", "dist/**", "docs/**"],
+    ignores: ['node_modules/**', '.nuxt/**', 'dist/**', 'docs/**'],
   },
   {
-    files: ["src/**/*.js"],
+    files: ['src/**/*.js'],
     plugins: {
       js,
     },
-    extends: ["js/recommended"],
+    extends: ['js/recommended'],
     rules: {
-      "no-unused-vars": "warn",
-      "no-undef": "warn",
+      'no-unused-vars': 'warn',
+      'no-undef': 'warn',
     },
   },
 ])

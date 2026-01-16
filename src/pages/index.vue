@@ -1,23 +1,58 @@
 <template>
-  <v-container class="py-10">
-    <v-row justify="center">
-      <v-col cols="12" md="8" class="text-center">
-        <h1 class="text-h4 font-weight-bold mb-6">Welcome to My Portfolio</h1>
-        <p class="mb-4">
-          Navigate using the links below to learn more about my work.
-        </p>
-        <div class="d-flex justify-center flex-wrap gap-4">
-          <v-btn color="primary" to="/projects">Projects</v-btn>
-          <v-btn color="primary" to="/skills">Skills</v-btn>
-          <v-btn color="primary" to="/about">About</v-btn>
-          <v-btn color="primary" to="/contact">Contact</v-btn>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+  <!-- Hero Section -->
+  <v-row dense style="border: 4px solid red">
+    <v-col class="pa-0" style="border: 4px solid blue">Hero Section</v-col>
+  </v-row>
+
+  <!-- The Rest -->
+  <v-row dense style="border: 4px solid red">
+    <v-col class="pa-0" style="border: 4px solid blue">
+      <v-container style="border: 4px solid black">
+        <v-row style="border: 4px solid red">
+          <v-col style="border: 4px solid blue"> Recent Projects Section </v-col>
+        </v-row>
+      </v-container>
+    </v-col>
+  </v-row>
 </template>
+
 <script setup lang="ts">
-definePageMeta({
-  alias: ["/"],
+const display = useDisplay()
+
+useHead({
+  title: 'Home',
 })
+
+const isMobile = computed(() => display.smAndDown.value)
+
+/*
+<div
+          :style="isMobile ? { height: '100dvh' } : { height: '40vh' }"
+          class="d-flex justify-center align-center">
+          <v-card class="pa-4 d-flex flex-column ga-4">
+            <v-card-text>
+              <h1 class="text-h1 text-center">Full-Stack Developer | Cloud & AI Specialist</h1>
+              <p class="text-subtitle">
+                I build modern web solutions with cloud and AI integration—no project is too
+                challenging. Let’s bring your ideas to life.
+              </p>
+            </v-card-text>
+            <v-card-actions
+              class="px-4 py-0 d-flex justify-center ga-4"
+              style="border: 4px solid purple">
+              <BaseBtn width="150" bg-blue class="bg-blue" text="See my Work" />
+              <v-hover v-if="!isMobile">
+                <template #default="{ isHovering, props }">
+                  <BaseBtn
+                    :class="`${isHovering ? 'bg-blue' : ''}`"
+                    variant="outlined"
+                    width="150"
+                    text="Let’s Talk"
+                    v-bind="props" />
+                </template>
+              </v-hover>
+            </v-card-actions>
+          </v-card>
+        </div>
+*/
 </script>
