@@ -1,4 +1,4 @@
-import { baseConfig } from "./base"
+import { baseConfig } from './base'
 
 export default defineNuxtConfig({
   ...baseConfig,
@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     ...baseConfig.nitro,
-    preset: "server", // Explicitly sets server mode for Node.js deployment
+    preset: 'server', // Explicitly sets server mode for Node.js deployment
   },
   runtimeConfig: {
     // server-side only.

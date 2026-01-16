@@ -1,6 +1,6 @@
-import { defineStore } from "pinia"
+import { defineStore } from 'pinia'
 
-export const useNavigationStore = defineStore("navigation", {
+export const useNavigationStore = defineStore('navigation', {
   state: () => ({
     drawer: false,
   }),

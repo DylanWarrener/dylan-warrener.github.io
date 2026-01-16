@@ -1,4 +1,4 @@
-const environment = process.env.NODE_ENV || "development"
+const environment = process.env.NODE_ENV || 'development'
 
 // Dynamically import the correct config and re-export it
 const loadConfig = async () => {

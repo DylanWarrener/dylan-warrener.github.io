@@ -1,4 +1,4 @@
-import { baseConfig } from "./base"
+import { baseConfig } from './base'
 
 export default defineNuxtConfig({
   ...baseConfig,
@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     ...baseConfig.nitro,
-    logLevel: "info", // Enable SSR logs during development
+    logLevel: 'info', // Enable SSR logs during development
   },
   runtimeConfig: {
     // server-side only.
