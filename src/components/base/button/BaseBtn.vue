@@ -1,35 +1,35 @@
 <template>
   <v-btn
+    v-ripple="{ class: rippleColor }"
     :class="computed_class"
     :variant="computed_variant"
     :size="computed_size"
     :width="computed_width"
-    :icon="!!icon"
-    v-ripple="{ class: rippleColor }">
-    <template #prepend v-if="prependIcon">
+    :icon="!!icon">
+    <template v-if="prependIcon" #prepend>
       <Icon
+        v-if="prependIcon"
         :class="computed_prependIconClass"
         :size="prependIconSize"
-        :name="prependIcon"
-        v-if="prependIcon" />
+        :name="prependIcon" />
     </template>
 
     <!-- Default -->
-    <span :class="textClass" :style="textStyle" v-text="text" v-if="text"></span>
+    <span v-if="text" :class="textClass" :style="textStyle" v-text="text" />
 
-    <Icon :class="computed_iconClass" :size="iconSize" :name="icon" :alt="iconAlt" v-if="icon" />
+    <Icon v-if="icon" :class="computed_iconClass" :size="iconSize" :name="icon" :alt="iconAlt" />
 
-    <v-img :src="src" :alt="alt" v-if="src && alt"></v-img>
+    <v-img v-if="src && alt" :src="src" :alt="alt" />
 
-    <slot name="custom-svg" class="custom-svg"></slot>
+    <slot name="custom-svg" class="custom-svg" />
 
-    <template #append v-if="appendIcon">
+    <template v-if="appendIcon" #append>
       <Icon
+        v-if="appendIcon"
         :class="computed_appendIconClass"
         :size="appendIconSize"
         :name="appendIcon"
-        :alt="appendIconAlt"
-        v-if="appendIcon" />
+        :alt="appendIconAlt" />
     </template>
   </v-btn>
 </template>

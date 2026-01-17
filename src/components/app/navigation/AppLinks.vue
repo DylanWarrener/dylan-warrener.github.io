@@ -1,6 +1,6 @@
 <template>
   <div :class="`text-inverted d-flex ga-4 ${computed_class}`">
-    <v-hover :key="index" v-for="(navItem, index) in navLinks">
+    <v-hover v-for="(navItem, index) in navLinks" :key="index">
       <template #default="{ isHovering, props }">
         <BaseBtn
           :width="`${isMobile ? '150' : '100'}`"

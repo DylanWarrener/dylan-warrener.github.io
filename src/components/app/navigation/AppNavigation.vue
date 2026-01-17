@@ -1,13 +1,13 @@
 <template>
   <v-navigation-drawer
+    v-model="navDrawer"
     temporary
     :style="{ height: `${navDrawer ? '100vh' : '0'}` }"
     class="bg-transparent above-everything"
-    location="bottom"
-    v-model="navDrawer">
+    location="bottom">
     <v-card class="pa-0 ma-0 h-100 rounded-0 d-flex flex-column">
       <v-toolbar class="px-4 d-flex flex-shrink-1 flex-grow-0" color="blue-darken-3">
-        <v-spacer></v-spacer>
+        <v-spacer />
         <v-hover>
           <template #default="{ isHovering, props }">
             <BaseBtn
@@ -20,7 +20,7 @@
         </v-hover>
       </v-toolbar>
 
-      <v-divider></v-divider>
+      <v-divider />
 
       <v-card-text
         class="flex-shrink-1 flex-grow-1 pa-4 d-flex flex-column overflow-y-auto"
@@ -28,13 +28,13 @@
         <AppLinks v-if="isMobile" class="flex-column align-center" />
       </v-card-text>
 
-      <v-divider></v-divider>
+      <v-divider />
 
       <v-card-actions class="pa-0 d-flex flex-column flex-shrink-1 flex-grow-0">
         <v-container fluid class="pa-2">
           <v-row>
             <v-col cols="12" class="d-flex">
-              <v-spacer></v-spacer>
+              <v-spacer />
               Action btn's go here
             </v-col>
           </v-row>

@@ -7,7 +7,7 @@
         height="4000"
         viewBox="0 0 1440 2999.999989"
         preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"></svg>
+        xmlns="http://www.w3.org/2000/svg" />
     </div>
 
     <v-app
@@ -22,56 +22,6 @@
       <AppNavigation v-if="isMobile" />
       <v-main>
         <v-container fluid class="d-flex flex-column ga-4" style="border: 4px solid green">
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
-          <NuxtPage />
           <NuxtPage />
         </v-container>
       </v-main>
