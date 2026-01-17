@@ -10,7 +10,8 @@
     "generate": "cross-env NUXT_ENV=production nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
