@@ -23,10 +23,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Format code (Prettier)
-        run: npm run format
+        run: npm run format:check
 
       - name: Lint code (ESLint)
         run: npm run lint
