@@ -1,19 +1,5 @@
-import { defineConfig } from 'eslint/config'
-import js from '@eslint/js'
+import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default defineConfig([
-  {
-    ignores: ['node_modules/**', '.nuxt/**', 'dist/**', 'docs/**'],
-  },
-  {
-    files: ['src/**/*.js'],
-    plugins: {
-      js,
-    },
-    extends: ['js/recommended'],
-    rules: {
-      'no-unused-vars': 'warn',
-      'no-undef': 'warn',
-    },
-  },
-])
+export default withNuxt({
+  ignores: ['node_modules/**', '.nuxt/**', '.output/**', 'docs/**', 'dist/**'],
+})
