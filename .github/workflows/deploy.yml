@@ -2,12 +2,14 @@ name: Build & Deploy to Production
 
 on:
   push:
-    branches:
-      - production
+    branches: [production]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      NUXT_ENV: production
+      NUXT_APP_BASE_URL: /
 
     steps:
       # 1) Checkout + keep the token so we can push back
@@ -34,22 +36,19 @@ jobs:
 
       # 4) Generate into docs/ (Nuxt + Nitro)
       - name: Build static site into docs/
-        run: npx nuxi generate --output docs
-        env:
-          NODE_ENV: production
-          NUXT_APP_BASE_URL: /
+        run: npm run generate
 
       # 5) Flatten docs/public into docs/
       - name: Flatten docs/public into docs/
+        shell: bash
         run: |
-          shopt -s dotglob      # include hidden files (e.g. .nojekyll)
+          shopt -s dotglob
           mv docs/public/* docs/
           rm -rf docs/public
 
       # 6) Prevent GitHub Pages from running Jekyll
       - name: Add nojekyll marker
-        run: |
-          touch docs/.nojekyll
+        run: touch docs/.nojekyll
 
       # 7) Commit docs/ back to production
       - name: Commit generated files

@@ -2,15 +2,16 @@ name: CI on Testing
 
 on:
   push:
-    branches:
-      - testing
+    branches: [testing]
   pull_request:
-    branches:
-      - testing
+    branches: [testing]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      NUXT_ENV: production
+      NUXT_APP_BASE_URL: /
 
     steps:
       - name: Checkout code
@@ -32,6 +33,3 @@ jobs:
 
       - name: Build site (static)
         run: npm run generate
-        env:
-          NODE_ENV: production
-          NUXT_APP_BASE_URL: /
