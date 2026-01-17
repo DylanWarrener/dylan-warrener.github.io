@@ -3,6 +3,8 @@ name: Build & Deploy to Production
 on:
   push:
     branches: [production]
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
   build-and-deploy:
@@ -23,13 +25,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: 'npm'
 
       # 3) Install & QA
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Format code (Prettier)
-        run: npm run format
+        run: npm run format:check
 
       - name: Lint code (ESLint)
         run: npm run lint
