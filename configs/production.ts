@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   },
   nitro: {
     ...baseConfig.nitro,
-    preset: 'server', // Explicitly sets server mode for Node.js deployment
   },
   runtimeConfig: {
     // server-side only.
