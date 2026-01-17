@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // nuxt.config.ts
 import type { NuxtConfig } from 'nuxt/schema'
-import Checker from 'vite-plugin-checker'
 
 import vuetifyModuleOptions from '../modules/vuetify'
 
@@ -72,10 +71,6 @@ export const baseConfig: NuxtConfig = {
     define: {
       'process.env.DEBUG': false, // Required for Vuetify
     },
-    plugins: [
-      // Enables Vue TypeScript checking
-      Checker({ vueTsc: true }),
-    ],
     vueJsx: {
       mergeProps: true,
     },
