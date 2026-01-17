@@ -3,14 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxt dev --host 0.0.0.0 --port 3000",
-    "build:dev": "nuxt build --envName development",
-    "build:prod": "nuxt build --envName production",
-    "build:staging": "nuxt build --envName staging",
-    "lint": "eslint .",
-    "format": "prettier --write .",
+    "dev": "cross-env NUXT_ENV=development nuxt dev --host 0.0.0.0 --port 3000",
+    "build:dev": "cross-env NUXT_ENV=development nuxt build",
+    "build:staging": "cross-env NUXT_ENV=staging nuxt build",
+    "build:prod": "cross-env NUXT_ENV=production nuxt build",
+    "generate": "cross-env NUXT_ENV=production nuxt generate",
     "preview": "nuxt preview",
-    "generate": "nuxt generate"
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
@@ -36,6 +36,7 @@
     "@nuxt/eslint-config": "^1.4.1",
     "@types/node": "^22.16.1",
     "@vitejs/plugin-vue-jsx": "^5.0.1",
+    "cross-env": "^10.1.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^10.2.0",
     "globals": "^16.2.0",
