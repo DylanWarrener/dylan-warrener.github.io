@@ -80,7 +80,6 @@ export const baseConfig: NuxtConfig = {
       crawlLinks: true,
       routes: [], // extra dynamic routes if needed
     },
-    output: { dir: 'docs' }, // GitHub Pages looks here
   },
   routeRules: {
     '/': { prerender: true },

@@ -1,0 +1,4 @@
+docs/
+.output/
+.nuxt/
+node_modules/

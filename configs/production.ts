@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     ...baseConfig.nitro,
+    output: { dir: 'docs' }, // GitHub Pages looks here
   },
   runtimeConfig: {
     // server-side only.
