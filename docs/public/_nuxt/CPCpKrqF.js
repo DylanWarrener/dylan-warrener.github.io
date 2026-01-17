@@ -1,0 +1,1 @@
+import{u as e}from"./B0-sTL4t.js";import{e as t,c as o,o as r}from"./BuuQOK_Q.js";const p=t({__name:"index",setup(a){return e({title:"Projects"}),(n,s)=>(r(),o("div",null,"Projects Page"))}});export{p as default};

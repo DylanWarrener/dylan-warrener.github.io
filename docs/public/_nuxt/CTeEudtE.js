@@ -1,0 +1,1 @@
+import{u as e}from"./B0-sTL4t.js";import{V as o}from"./C7CPrbW3.js";import{e as t,f as r,o as a}from"./BuuQOK_Q.js";import"./DJuGiAac.js";const f=t({__name:"index",setup(m){return e({title:"Home"}),(s,n)=>(a(),r(o))}});export{f as default};

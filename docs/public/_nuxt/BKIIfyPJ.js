@@ -1,0 +1,1 @@
+import{u as e}from"./B0-sTL4t.js";import{e as t,c as o,o as a}from"./BuuQOK_Q.js";const p=t({__name:"index",setup(n){return e({title:"Contact"}),(c,r)=>(a(),o("div",null,"Contact Page"))}});export{p as default};
