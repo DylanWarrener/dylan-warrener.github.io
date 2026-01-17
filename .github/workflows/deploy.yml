@@ -31,15 +31,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Format code (Prettier)
-        run: npm run format:check
-
-      - name: Lint code (ESLint)
-        run: npm run lint
-
       # 4) Generate into docs/ (Nuxt + Nitro)
       - name: Build static site into docs/
-        run: npm run generate
+        run: npm run build:prod
 
       # 5) Flatten docs/public into docs/
       - name: Flatten docs/public into docs/

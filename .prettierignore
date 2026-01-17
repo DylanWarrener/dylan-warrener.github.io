@@ -1,0 +1,5 @@
+.github/
+.nuxt/
+.output/
+.vscode/
+node_modules/

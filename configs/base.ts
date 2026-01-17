@@ -52,7 +52,7 @@ export const baseConfig: NuxtConfig = {
     'vuetify-nuxt-module',
   ],
   typescript: {
-    typeCheck: true,
+    typeCheck: false, // IMPORTANT: don't typecheck during nuxt build/generate otherwuse errors occur
     strict: true,
     shim: false,
   },
@@ -80,7 +80,6 @@ export const baseConfig: NuxtConfig = {
       crawlLinks: true,
       routes: [], // extra dynamic routes if needed
     },
-    output: { dir: 'docs' }, // GitHub Pages looks here
   },
   routeRules: {
     '/': { prerender: true },

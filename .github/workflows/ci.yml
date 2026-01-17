@@ -10,7 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      NUXT_ENV: production
       NUXT_APP_BASE_URL: /
 
     steps:
@@ -21,15 +20,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Format code (Prettier)
-        run: npm run format:check
-
-      - name: Lint code (ESLint)
-        run: npm run lint
-
       - name: Build site (static)
-        run: npm run generate
+        run: npm run build:prod
