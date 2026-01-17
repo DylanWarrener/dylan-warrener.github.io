@@ -52,7 +52,7 @@ export const baseConfig: NuxtConfig = {
     'vuetify-nuxt-module',
   ],
   typescript: {
-    typeCheck: true,
+    typeCheck: false, // IMPORTANT: don't typecheck during nuxt build/generate otherwuse errors occur
     strict: true,
     shim: false,
   },

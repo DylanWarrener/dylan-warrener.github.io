@@ -1,0 +1,1 @@
+import{u as e}from"./An-t1DGR.js";import{e as t,c as o,o as a}from"./BnXwA1Nz.js";const m=t({__name:"index",setup(n){return e({title:"About"}),(r,s)=>(a(),o("div",null,"About Page"))}});export{m as default};

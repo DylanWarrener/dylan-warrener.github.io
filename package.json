@@ -4,14 +4,15 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env NUXT_ENV=development nuxt dev --host 0.0.0.0 --port 3000",
-    "build:dev": "cross-env NUXT_ENV=development nuxt build",
+    "build:dev": "npm run format:check && npm run lint && npm run typecheck && cross-env NUXT_ENV=development nuxt build",
     "build:staging": "cross-env NUXT_ENV=staging nuxt build",
     "build:prod": "cross-env NUXT_ENV=production nuxt build",
-    "generate": "cross-env NUXT_ENV=production nuxt generate",
-    "preview": "nuxt preview",
-    "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "typecheck": "npx nuxi typecheck",
+    "preview": "nuxt preview",
+    "generate": "cross-env NUXT_ENV=production nuxt generate"
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",

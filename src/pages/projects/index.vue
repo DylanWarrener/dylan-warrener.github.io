@@ -2,7 +2,7 @@
   <div>Projects Page</div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 useHead({
   title: 'Projects',
 })
