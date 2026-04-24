@@ -3,13 +3,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "cross-env NUXT_ENV=development nuxt dev --host 0.0.0.0 --port 3000",
-    "build:dev": "npm run format:check && npm run lint && npm run typecheck && cross-env NUXT_ENV=development nuxt build",
-    "build:prod": "npm run format:check && npm run lint && npm run typecheck && cross-env NUXT_ENV=production nuxt generate",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,ts,vue,json,md,css,scss,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,vue,json,md,css,scss,yml,yaml}\"",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
     "typecheck": "npx nuxi typecheck",
+    "build:check": "npm run format:check && npm run lint:check && npm run typecheck",
+    "build:dev": "npm run build:check && cross-env NUXT_ENV=development nuxt build",
+    "build:prod": "npm run build:check && cross-env NUXT_ENV=production nuxt generate",
+    "fix": "npm run lint && npm run format && npm run typecheck",
+    "fix:then:build:dev": "npm run fix && npm run build:dev",
+    "dev": "cross-env NUXT_ENV=development nuxt dev --host 0.0.0.0 --port 3000",
     "preview": "nuxt preview"
   },
   "dependencies": {
@@ -45,5 +49,8 @@
     "sass-loader": "^16.0.5",
     "typescript": "^5.8.3",
     "vue-tsc": "^2.2.10"
+  },
+  "engines": {
+    "node": ">=22.13"
   }
 }

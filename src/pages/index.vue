@@ -1,29 +1,15 @@
 <template>
-  <!-- Hero Section -->
-  <v-row dense style="border: 4px solid red">
-    <v-col class="pa-0" style="border: 4px solid blue">Hero Section</v-col>
-  </v-row>
-
-  <!-- The Rest -->
-  <v-row dense style="border: 4px solid red">
-    <v-col class="pa-0" style="border: 4px solid blue">
-      <v-container style="border: 4px solid black">
-        <v-row style="border: 4px solid red">
-          <v-col style="border: 4px solid blue"> Recent Projects Section </v-col>
-        </v-row>
-      </v-container>
-    </v-col>
-  </v-row>
+  <v-row />
 </template>
 
 <script setup lang="ts">
-const display = useDisplay()
+//const display = useDisplay()
 
 useHead({
   title: 'Home',
 })
 
-const isMobile = computed(() => display.smAndDown.value)
+//const isMobile = computed(() => display.smAndDown.value)
 
 /*
 <div
@@ -54,5 +40,23 @@ const isMobile = computed(() => display.smAndDown.value)
             </v-card-actions>
           </v-card>
         </div>
+*/
+
+/*
+<!-- Hero Section -->
+  <v-row dense style="border: 4px solid red">
+    <v-col class="pa-0" style="border: 4px solid blue">Hero Section</v-col>
+  </v-row>
+
+  <!-- The Rest -->
+  <v-row dense style="border: 4px solid red">
+    <v-col class="pa-0" style="border: 4px solid blue">
+      <v-container style="border: 4px solid black">
+        <v-row style="border: 4px solid red">
+          <v-col style="border: 4px solid blue"> Recent Projects Section </v-col>
+        </v-row>
+      </v-container>
+    </v-col>
+  </v-row>
 */
 </script>

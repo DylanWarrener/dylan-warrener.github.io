@@ -6,7 +6,7 @@
       style="height: 100%"
       aria-hidden="true"
       :src="firstBgSrc"
-      :alt="firstBgAlt"></v-img>
+      :alt="firstBgAlt" />
   </div>
   <div class="position-fixed top-0 left-0 w-100 h-100">
     <v-img
@@ -15,7 +15,7 @@
       style="height: 100%"
       aria-hidden="true"
       :src="secondBgSrc"
-      :alt="secondBgAlt"></v-img>
+      :alt="secondBgAlt" />
   </div>
 </template>
 

@@ -3,7 +3,7 @@
     <NuxtLink class="text-inverted text-button text-decoration-none" to="/">
       Dylan Warrener
     </NuxtLink>
-    <v-spacer></v-spacer>
+    <v-spacer />
     <v-hover v-if="isMobile">
       <template #default="{ isHovering, props }">
         <BaseBtn

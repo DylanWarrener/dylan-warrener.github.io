@@ -1,7 +1,7 @@
 <template>
   <AppBackgroundBase
-    firstBgSrc="/images/backgrounds/light/top-to-bottom.svg"
-    firstBgAlt="Background wave at the top"
-    secondBgSrc="/images/backgrounds/light/bottom-to-top.svg"
-    secondBgAlt="Background wave at the bottom" />
+    first-bg-src="/images/backgrounds/light/top-to-bottom.svg"
+    first-bg-alt="Background wave at the top"
+    second-bg-src="/images/backgrounds/light/bottom-to-top.svg"
+    second-bg-alt="Background wave at the bottom" />
 </template>
