@@ -16,13 +16,13 @@ jobs:
     steps:
       # 1) Checkout + keep the token so we can push back
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: true
 
       # 2) Setup Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '22.13'
           cache: 'npm'

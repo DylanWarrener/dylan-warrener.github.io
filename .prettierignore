@@ -5,3 +5,5 @@
 node_modules/
 docs/
 dist/
+nitro.json
+src/public/
