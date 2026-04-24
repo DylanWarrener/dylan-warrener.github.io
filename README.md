@@ -1,81 +1,37 @@
-Dylan Warrener • Software Developer Portfolio
-Welcome! This repository hosts my personal portfolio website, built with Nuxt 3, Vue 3, Vuetify 3, Tailwind CSS, TypeScript, Pinia, and more. Its goal is to showcase my projects, skills, and experience as a full-stack developer.
+# Setup
 
-📦 Scripts
-Use these npm scripts to develop, build, generate, and maintain the site:
+To execute this project, open a terminal at project root and run the following commands in order:
 
-Script Description
-npm run dev Launches the Nuxt development server with hot-reload (local preview at http://localhost:3000).
-npm run build Compiles a production-ready build for server-side rendering or static generation.
-npm run generate Generates fully static HTML files (ideal for GitHub Pages or any static-hosting environment).
-npm run preview Starts a local preview of your built (or generated) site to validate production output.
-npm run postinstall Automatically runs nuxt prepare after installing dependencies, ensuring Nuxt’s type metadata is up to date.
-npm run lint Runs ESLint on all .js, .ts, and .vue files to catch syntax errors, best-practice violations, and style issues.
-npm run format Runs Prettier to format JavaScript, TypeScript, Vue, JSON, CSS, and other supported files.
+1. `npm i`
+2. `build:dev`
 
-🚀 Getting Started
-Clone the repo
+# Commands
 
-bash
-Copy
-Edit
-git clone https://github.com/DylanWarrener/dylan-warrener.github.io.git
-cd dylan-warrener.github.io
-Install dependencies
+## For Formatting
 
-bash
-Copy
-Edit
-npm install
-Run in development mode
+The following commands can be executed in a terminal directed at the project root, for raising formatting issues in files, across the repo:
 
-bash
-Copy
-Edit
-npm run dev
-Open http://localhost:3000 in your browser to see the site.
+- `npm run format` - Formats the files. Does update files.
+- `npm run format:check` - Checks for formatting issues. Does not update files.
 
-Build for production (SSR or generate static)
+## For TypeScript
 
-For server-side rendering:
+The following commands can be executed in a terminal directed at the project root, for raising TypeScript issues in files, across the repo:
 
-bash
-Copy
-Edit
-npm run build
-npm run preview
-For fully static output:
+- `npm run lint` - Formats the files. Does update files.
+- `npm run lint:check` - Checks for TypeScript issues. Does not update files.
 
-bash
-Copy
-Edit
-npm run generate
-The static files will be in the .output/public folder, ready for deployment.
+## For Building Development Site Locally
 
-🛠️ Tech Stack
-Framework: Nuxt 3 / Vue 3
+The following commands can be executed in a terminal directed at the project root, for building the project (do so in order):
 
-UI Components: Vuetify 3 (Material Design)
+- `npm i` - Installs the project dependencies.
+- `npm run build:dev` - Builds the project locally. Checks for issues, but does not fix files.
+- `npm run fix:then:build:dev` - Fixes formatting and type issues before building locally.
 
-CSS: Tailwind CSS, Sass, PostCSS, Autoprefixer
+## For Building Production Site Locally
 
-State Management: Pinia
+The following commands can be executed in a terminal directed at the project root, for building the project (do so in order):
 
-Routing: Vue Router 4 (powered by Nuxt’s file-based router)
-
-Language: TypeScript
-
-Linting & Formatting: ESLint (Vue & Nuxt plugins) + Prettier
-
-📄 License
-This project is open-source and available under the MIT License.
-
-Built with ❤️ by Dylan Warrener
-dylan-warrener.github.io
-GitHub • LinkedIn • Email
-
-To enable the **CV** download link in the navigation bar, place your CV PDF at
-`public/CV.pdf` in the project root. The file will be served statically and
-downloaded when visitors click the CV button.
-
-Feel free to explore the code, submit feedback, or reach out if you have any questions or collaboration ideas!
+- `npm i` - Installs the project dependencies.
+- `npm run build:prod` - Builds the project locally.
