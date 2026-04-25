@@ -1,5 +1,12 @@
 <template>
-  <v-row />
+  <main style="border: 4px solid red">
+    <HomeHero cols="12" />
+    <HomeCredibility cols="12" />
+    <HomeFeaturedProjects cols="12" />
+    <HomeHowIWork cols="12" />
+    <HomeNow cols="12" />
+    <HomeContact cols="12" />
+  </main>
 </template>
 
 <script setup lang="ts">
