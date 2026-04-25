@@ -3,55 +3,51 @@ name: Build & Deploy to Production
 on:
   push:
     branches: [production]
-    paths-ignore:
-      - 'docs/**'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     env:
       NUXT_ENV: production
       NUXT_APP_BASE_URL: /
 
     steps:
-      # 1) Checkout + keep the token so we can push back
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
-      # 2) Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22.13'
           cache: 'npm'
 
-      # 3) Install & QA
       - name: Install dependencies
         run: npm ci
 
-      # 4) Generate into docs/ (Nuxt + Nitro)
-      - name: Build static site into docs/
+      - name: Build static site
         run: npm run build:prod
 
-      # 5) Flatten docs/public into docs/
-      - name: Flatten docs/public into docs/
-        shell: bash
-        run: |
-          shopt -s dotglob
-          mv docs/public/* docs/
-          rm -rf docs/public
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-      # 6) Prevent GitHub Pages from running Jekyll
-      - name: Add nojekyll marker
-        run: touch docs/.nojekyll
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/public
 
-      # 7) Commit docs/ back to production
-      - name: Commit generated files
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f docs
-          git commit -m "chore: rebuild site at ${{ github.sha }}" || echo "Nothing to commit"
-          git push origin production
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
