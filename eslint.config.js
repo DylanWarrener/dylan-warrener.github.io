@@ -1,4 +1,5 @@
 import { createConfigForNuxt } from '@nuxt/eslint-config'
+import prettier from 'eslint-config-prettier'
 
 export default createConfigForNuxt({
   features: {
@@ -39,3 +40,4 @@ export default createConfigForNuxt({
       'vue/multi-word-component-names': 'off',
     },
   })
+  .append(prettier)

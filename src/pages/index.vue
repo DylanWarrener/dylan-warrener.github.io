@@ -1,5 +1,12 @@
 <template>
-  <v-row />
+  <v-row>
+    <HomeHero />
+    <HomeCredibility />
+    <HomeFeaturedProjects />
+    <HomeHowIWork />
+    <HomeNow />
+    <HomeContact />
+  </v-row>
 </template>
 
 <script setup lang="ts">

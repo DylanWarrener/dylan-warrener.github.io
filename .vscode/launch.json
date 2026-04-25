@@ -2,54 +2,28 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Nuxt: dev server (inspect)",
-      "type": "node-terminal",
+      "name": "Frontend",
+      "type": "chrome",
       "request": "launch",
-      "command": "npm run dev",
-      "env": {
-        "NODE_ENV": "development",
-        "NODE_OPTIONS": "--inspect=9230"
-      }
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/src",
+      "preLaunchTask": "dev ready",
+      "sourceMaps": true
     },
     {
-      "name": "Nuxt: attach server debugger",
+      "name": "Backend",
       "type": "node",
       "request": "attach",
       "port": 9230,
       "restart": true,
       "skipFiles": ["<node_internals>/**"]
-    },
-    {
-      "name": "Client: Chrome",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/src"
-    },
-    {
-      "name": "Client: Edge",
-      "type": "msedge",
-      "request": "launch",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/src"
     }
   ],
   "compounds": [
     {
-      "name": "Full-stack: server + Chrome",
-      "configurations": [
-        "Nuxt: dev server (inspect)",
-        "Nuxt: attach server debugger",
-        "Client: Chrome"
-      ]
-    },
-    {
-      "name": "Full-stack: server + Edge",
-      "configurations": [
-        "Nuxt: dev server (inspect)",
-        "Nuxt: attach server debugger",
-        "Client: Edge"
-      ]
+      "name": "Full-stack: client + server",
+      "configurations": ["Frontend", "Backend"],
+      "stopAll": true
     }
   ]
 }
