@@ -8,9 +8,11 @@ export const baseConfig: NuxtConfig = {
   srcDir: 'src/',
   compatibilityDate: '2025-07-10',
   alias: {
-    '@/abstractions': './src/abstractions',
+    '@/interfaces': './src/interfaces',
+    '@/types': './src/types',
     '@/assets': './src/assets',
-    '@/components': './src/components',
+    '@/base-components': './src/components/base',
+    '@/components': './src/components/app',
     '@/composables': './src/composables',
     '@/layouts': './src/layouts',
     '@/middleware': './src/middleware',
@@ -18,7 +20,6 @@ export const baseConfig: NuxtConfig = {
     '@/plugins': './src/plugins',
     '@/server': './src/server',
     '@/stores': './src/stores',
-    '@/types': './src/types',
     '@/utils': './src/utils',
   },
   app: {
@@ -39,7 +40,11 @@ export const baseConfig: NuxtConfig = {
   },
   components: [
     {
-      path: '~/components',
+      path: '~/components/base',
+      pathPrefix: false,
+    },
+    {
+      path: '~/components/app',
       pathPrefix: false,
     },
   ],
@@ -47,7 +52,6 @@ export const baseConfig: NuxtConfig = {
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/test-utils',
     '@pinia/nuxt', // Pinia auto-registeyeah
     'vuetify-nuxt-module',
   ],
@@ -82,15 +86,7 @@ export const baseConfig: NuxtConfig = {
     },
   },
   routeRules: {
-    '/': { prerender: true },
-    '/projects': { swr: 3600 }, // updates hourly
-    '/skills': { prerender: true },
-    '/about': { prerender: true },
-    '/contact': { ssr: true }, // live validation
-    '/contact/**': { ssr: true },
-    // "/api/contact-form": {
-    //   cors: true, // allow XHR from site only
-    // },
+    '/**': { prerender: true },
   },
   runtimeConfig: {
     // server-side only.
