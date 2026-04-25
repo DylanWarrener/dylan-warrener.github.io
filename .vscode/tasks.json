@@ -1,23 +1,31 @@
 {
-  "label": "dev ready",
-  "type": "shell",
-  "command": "npm run dev",
-  "isBackground": true,
-  "options": {
-    "env": {
-      "NODE_ENV": "development",
-      "NODE_OPTIONS": "--inspect=9230"
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev ready",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "options": {
+        "env": {
+          "NODE_ENV": "development",
+          "NODE_OPTIONS": "--inspect=9230"
+        }
+      },
+      "problemMatcher": {
+        "owner": "nuxt",
+        "pattern": {
+          "regexp": ".",
+          "file": 0,
+          "location": 0,
+          "message": 0
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": ".*(Local|Network):\\s+http://.*:3000.*"
+        }
+      }
     }
-  },
-  "problemMatcher": {
-    "owner": "nuxt",
-    "pattern": {
-      "regexp": "."
-    },
-    "background": {
-      "activeOnStart": true,
-      "beginsPattern": ".*",
-      "endsPattern": ".*Local:.*http://localhost:3000.*"
-    }
-  }
+  ]
 }
