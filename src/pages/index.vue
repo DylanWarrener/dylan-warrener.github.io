@@ -1,5 +1,5 @@
 <template>
-  <main style="border: 4px solid red">
+  <main>
     <HomeHero cols="12" />
     <HomeCredibility cols="12" />
     <HomeFeaturedProjects cols="12" />

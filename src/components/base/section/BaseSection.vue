@@ -1,16 +1,16 @@
 <template>
   <section
     :class="sectionClass"
-    style="border: 4px solid blue"
+    style="border: 4px solid black"
   >
     <v-container
       fluid
       class="pa-0"
-      style="border: 4px solid black"
+      style="border: 4px solid red"
     >
       <div
         :class="contentClass"
-        style="border: 4px solid red"
+        style="border: 4px solid blue"
       >
         <slot />
       </div>
