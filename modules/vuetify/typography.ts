@@ -1,15 +1,55 @@
 const typography = {
   // Headings
-  h1: { size: '4rem', weight: 700, lineHeight: 1.2, letterSpacing: '0em' },
-  h2: { size: '3.2rem', weight: 700, lineHeight: 1.2, letterSpacing: '0em' },
-  h3: { size: '2.6rem', weight: 700, lineHeight: 1.2, letterSpacing: '0em' },
-  h4: { size: '2rem', weight: 700, lineHeight: 1.2, letterSpacing: '0em' },
-  h5: { size: '1.5rem', weight: 700, lineHeight: 1.2, letterSpacing: '0em' },
-  h6: { size: '1.2rem', weight: 700, lineHeight: 1.2, letterSpacing: '0em' },
+  h1: {
+    size: '4rem',
+    weight: 700,
+    lineHeight: 1.2,
+    letterSpacing: '0em',
+  },
+  h2: {
+    size: '3.2rem',
+    weight: 700,
+    lineHeight: 1.2,
+    letterSpacing: '0em',
+  },
+  h3: {
+    size: '2.6rem',
+    weight: 700,
+    lineHeight: 1.2,
+    letterSpacing: '0em',
+  },
+  h4: {
+    size: '2rem',
+    weight: 700,
+    lineHeight: 1.2,
+    letterSpacing: '0em',
+  },
+  h5: {
+    size: '1.5rem',
+    weight: 700,
+    lineHeight: 1.2,
+    letterSpacing: '0em',
+  },
+  h6: {
+    size: '1.2rem',
+    weight: 700,
+    lineHeight: 1.2,
+    letterSpacing: '0em',
+  },
 
   // Body
-  body1: { size: '1.6rem', weight: 400, lineHeight: 1.5, letterSpacing: '0em' },
-  body2: { size: '1.4rem', weight: 400, lineHeight: 1.5, letterSpacing: '0em' },
+  body1: {
+    size: '1.6rem',
+    weight: 400,
+    lineHeight: 1.5,
+    letterSpacing: '0em',
+  },
+  body2: {
+    size: '1.4rem',
+    weight: 400,
+    lineHeight: 1.5,
+    letterSpacing: '0em',
+  },
 
   // Subtitles
   subtitle1: {
@@ -50,7 +90,12 @@ const typography = {
   },
 
   // Info/small text (for <span>)
-  info: { size: '1.2rem', weight: 400, lineHeight: 1.5, letterSpacing: '0em' },
+  info: {
+    size: '1.2rem',
+    weight: 400,
+    lineHeight: 1.5,
+    letterSpacing: '0em',
+  },
 }
 
 export default typography

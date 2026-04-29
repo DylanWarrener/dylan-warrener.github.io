@@ -31,7 +31,8 @@ export const baseConfig: NuxtConfig = {
       meta: [
         {
           name: 'description',
-          content: 'Portfolio for showcasing my projects, skills, and knowledge.',
+          content:
+            'Portfolio for showcasing my projects, skills, and knowledge.',
         },
       ],
       link: [{ rel: 'icon', href: '/favicon.ico' }],
@@ -69,7 +70,11 @@ export const baseConfig: NuxtConfig = {
     moduleOptions: {
       styles: 'sass', // Enables SASS variable customization
     },
-    vuetifyOptions: vuetifyModuleOptions as unknown as Record<string, unknown>, // <- safest for now
+    vuetifyOptions:
+      vuetifyModuleOptions as unknown as Record<
+        string,
+        unknown
+      >, // <- safest for now
   },
   vite: {
     define: {
