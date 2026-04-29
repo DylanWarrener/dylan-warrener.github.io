@@ -1,8 +1,8 @@
 import colors from 'vuetify/util/colors'
 
 const commonTheme = {
-  primary: colors.lightBlue.base,
-  secondary: colors.blue.darken2,
+  primary: '#3642f7',
+  secondary: '#151428',
 }
 
 const lightTheme = {

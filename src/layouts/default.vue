@@ -1,7 +1,7 @@
 <template>
   <v-app :theme="theme">
-    <!-- <AppHeader />
-    <AppNavigation v-if="isMobile" /> -->
+    <AppHeader />
+    <!-- <AppNavigation v-if="isMobile" /> -->
     <v-main>
       <NuxtPage />
     </v-main>

@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="d-flex flex-column">
     <HomeHero cols="12" />
     <HomeCredibility cols="12" />
     <HomeFeaturedProjects cols="12" />

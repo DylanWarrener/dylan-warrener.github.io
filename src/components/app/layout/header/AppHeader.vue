@@ -1,6 +1,7 @@
 <template>
   <v-app-bar
     class="px-4 bg-transparent d-flex"
+    style="border: 2px solid purple"
     elevation="0"
     scroll-behavior="hide"
   >

@@ -129,3 +129,20 @@ html {
 .btn-icon-move {
   transform: translateX(25%) !important;
 }
+.btn-cta-icon {
+  transition: transform 0.3s ease;
+}
+.btn-cta:hover .btn-cta-icon {
+  transform: translateX(6px);
+}
+.btn-non-cta {
+  transition: all 0.3s ease;
+}
+.btn-non-cta:hover {
+  color: white;
+  border-color: #8e24aa;
+  box-shadow:
+    0 0 1px #8e24aa,
+    0 0 1px #8e24aa;
+  background: #673ab7bf;
+}
