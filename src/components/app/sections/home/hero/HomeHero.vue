@@ -26,14 +26,14 @@
           class="d-flex flex-column ga-4"
           style="border: 2px solid orange"
         >
-          <h1>
+          <h1 class="text-inverted text-h1">
             Full-Stack Engineer - <br />
             <span class="text-blue">Web & AI-Powered</span>
             <br />
             Software in the Cloud
           </h1>
 
-          <p>
+          <p class="text-inverted">
             I design and develop modern web and AI-powered
             applications that are stable, scalable, and
             built for real users.
@@ -55,5 +55,6 @@
 <style lang="scss" scoped>
 .hero-container {
   height: calc(100dvh - var(--v-layout-top));
+  background-color: #010b17;
 }
 </style>
