@@ -1,18 +1,21 @@
 import { defineStore } from 'pinia'
 
-export const useNavigationStore = defineStore('navigation', {
-  state: () => ({
-    drawer: false,
-  }),
-  getters: {
-    isNavOpen: (state) => state.drawer,
-  },
-  actions: {
-    setDrawer(value: boolean) {
-      this.drawer = value
+export const useNavigationStore = defineStore(
+  'navigation',
+  {
+    state: () => ({
+      drawer: false,
+    }),
+    getters: {
+      isNavOpen: (state) => state.drawer,
     },
-    toggleDrawer() {
-      this.drawer = !this.drawer
+    actions: {
+      setDrawer(value: boolean) {
+        this.drawer = value
+      },
+      toggleDrawer() {
+        this.drawer = !this.drawer
+      },
     },
-  },
-})
+  }
+)

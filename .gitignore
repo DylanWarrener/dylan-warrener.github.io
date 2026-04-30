@@ -1,9 +1,9 @@
 .github
 .nuxt
 .output
-.vscode
-node_modules
+.vscode/launch.json
+.vscode/tasks.json
 .env
-.env.*
+node_modules
 dist
 docs

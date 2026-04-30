@@ -2,8 +2,6 @@
 // nuxt.config.ts
 import type { NuxtConfig } from 'nuxt/schema'
 
-import vuetifyModuleOptions from '../modules/vuetify'
-
 export const baseConfig: NuxtConfig = {
   srcDir: 'src/',
   compatibilityDate: '2025-07-10',
@@ -31,7 +29,8 @@ export const baseConfig: NuxtConfig = {
       meta: [
         {
           name: 'description',
-          content: 'Portfolio for showcasing my projects, skills, and knowledge.',
+          content:
+            'Portfolio for showcasing my projects, skills, and knowledge.',
         },
       ],
       link: [{ rel: 'icon', href: '/favicon.ico' }],
@@ -69,7 +68,7 @@ export const baseConfig: NuxtConfig = {
     moduleOptions: {
       styles: 'sass', // Enables SASS variable customization
     },
-    vuetifyOptions: vuetifyModuleOptions as unknown as Record<string, unknown>, // <- safest for now
+    vuetifyOptions: './vuetify.config.ts',
   },
   vite: {
     define: {
