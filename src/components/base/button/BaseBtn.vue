@@ -5,31 +5,58 @@
     :variant="computed_variant"
     :size="computed_size"
     :width="computed_width"
-    :icon="!!icon">
-    <template v-if="prependIcon" #prepend>
+    :icon="!!icon"
+  >
+    <template
+      v-if="prependIcon"
+      #prepend
+    >
       <Icon
         v-if="prependIcon"
         :class="computed_prependIconClass"
         :size="prependIconSize"
-        :name="prependIcon" />
+        :name="prependIcon"
+      />
     </template>
 
     <!-- Default -->
-    <span v-if="text" :class="textClass" :style="textStyle" v-text="text" />
+    <span
+      v-if="text"
+      :class="textClass"
+      :style="textStyle"
+      v-text="text"
+    />
 
-    <Icon v-if="icon" :class="computed_iconClass" :size="iconSize" :name="icon" :alt="iconAlt" />
+    <Icon
+      v-if="icon"
+      :class="computed_iconClass"
+      :size="iconSize"
+      :name="icon"
+      :alt="iconAlt"
+    />
 
-    <v-img v-if="src && alt" :src="src" :alt="alt" />
+    <v-img
+      v-if="src && alt"
+      :src="src"
+      :alt="alt"
+    />
 
-    <slot name="custom-svg" class="custom-svg" />
+    <slot
+      name="custom-svg"
+      class="custom-svg"
+    />
 
-    <template v-if="appendIcon" #append>
+    <template
+      v-if="appendIcon"
+      #append
+    >
       <Icon
         v-if="appendIcon"
         :class="computed_appendIconClass"
         :size="appendIconSize"
         :name="appendIcon"
-        :alt="appendIconAlt" />
+        :alt="appendIconAlt"
+      />
     </template>
   </v-btn>
 </template>
@@ -37,18 +64,36 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-type VBtnVariant = 'text' | 'flat' | 'elevated' | 'tonal' | 'outlined' | 'plain' | undefined
+type VBtnVariant =
+  | 'text'
+  | 'flat'
+  | 'elevated'
+  | 'tonal'
+  | 'outlined'
+  | 'plain'
+  | undefined
 
 const props = defineProps({
-  variant: { type: String as PropType<VBtnVariant>, required: false },
+  variant: {
+    type: String as PropType<VBtnVariant>,
+    required: false,
+  },
   size: { type: String, required: false },
   class: { type: String, required: false },
   width: { type: String, required: false },
-  rippleColor: { type: String, required: false, default: 'text-accent' },
+  rippleColor: {
+    type: String,
+    required: false,
+    default: 'text-accent',
+  },
 
   // Append
   appendIconClass: { type: String, required: false },
-  appendIconSize: { type: String, required: false, default: '24' },
+  appendIconSize: {
+    type: String,
+    required: false,
+    default: '24',
+  },
   appendIconAlt: { type: String, required: false },
   appendIcon: { type: String, required: false },
   iconAppendColor: { type: String, required: false },
@@ -58,7 +103,11 @@ const props = defineProps({
   textStyle: { type: String, required: false },
   text: { type: String, required: false },
   iconClass: { type: String, required: false },
-  iconSize: { type: String, required: false, default: '24' },
+  iconSize: {
+    type: String,
+    required: false,
+    default: '24',
+  },
   icon: { type: String, required: false },
   iconAlt: { type: String, required: false },
   iconColor: { type: String, required: false },
@@ -70,7 +119,11 @@ const props = defineProps({
 
   // Prepend
   prependIconClass: { type: String, required: false },
-  prependIconSize: { type: String, required: false, default: '24' },
+  prependIconSize: {
+    type: String,
+    required: false,
+    default: '24',
+  },
   prependIcon: { type: String, required: false },
   prependIconColor: { type: String, required: false },
 })
@@ -103,7 +156,8 @@ const computed_width = computed(() => {
 
 const computed_prependIconClass = computed(() => {
   const arr: string[] = []
-  if (props.prependIconClass) arr.push(props.prependIconClass)
+  if (props.prependIconClass)
+    arr.push(props.prependIconClass)
   return arr.join(' ')
 })
 

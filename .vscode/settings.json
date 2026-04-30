@@ -3,10 +3,11 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
 
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
   "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   "[typescript]": {
@@ -16,6 +17,10 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+
+  "prettier.requireConfig": true,
+  "prettier.prettierPath": "./node_modules/prettier",
+  "prettier.configPath": ".prettierrc",
 
   "eslint.validate": ["javascript", "typescript", "vue"],
   "eslint.useFlatConfig": true,

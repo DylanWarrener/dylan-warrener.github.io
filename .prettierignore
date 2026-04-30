@@ -6,3 +6,4 @@ docs/
 dist/
 nitro.json
 src/public/
+.vscode/

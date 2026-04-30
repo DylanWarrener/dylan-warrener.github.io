@@ -1,6 +1,13 @@
 <template>
-  <v-app-bar class="px-4 bg-transparent d-flex" elevation="0" scroll-behavior="hide">
-    <NuxtLink class="text-inverted text-button text-decoration-none" to="/">
+  <v-app-bar
+    class="px-4 bg-transparent d-flex"
+    elevation="0"
+    scroll-behavior="hide"
+  >
+    <NuxtLink
+      class="text-inverted text-button text-decoration-none"
+      to="/"
+    >
       Dylan Warrener
     </NuxtLink>
     <v-spacer />
@@ -11,10 +18,14 @@
           :class="`${isHovering ? 'bg-grey-lighten-5' : 'bg-transparent'}`"
           :icon-alt="nuxtIconAlt"
           v-bind="props"
-          @click="toggleDrawer" />
+          @click="toggleDrawer"
+        />
       </template>
     </v-hover>
-    <AppLinks v-else class="mr-4" />
+    <AppLinks
+      v-else
+      class="mr-4"
+    />
     <v-hover v-if="!isMobile">
       <template #default="{ isHovering, props }">
         <BaseBtn
@@ -23,7 +34,8 @@
           variant="outlined"
           width="150"
           text="Download CV"
-          v-bind="props" />
+          v-bind="props"
+        />
       </template>
     </v-hover>
   </v-app-bar>
@@ -36,7 +48,10 @@ const display = useDisplay()
 const navDrawer = useNavDrawer()
 
 const isMobile = computed(() => display.smAndDown.value)
-const nuxtIconAlt = computed(() => `${navDrawer.value ? 'Menu Opened' : 'Menu Closed'}`)
+const nuxtIconAlt = computed(
+  () => `${navDrawer.value ? 'Menu Opened' : 'Menu Closed'}`
+)
 
-const toggleDrawer = () => (navDrawer.value = !navDrawer.value)
+const toggleDrawer = () =>
+  (navDrawer.value = !navDrawer.value)
 </script>

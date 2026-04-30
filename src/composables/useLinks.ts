@@ -1,5 +1,7 @@
 export const useNavLinks = () =>
-  useState<{ prependIcon: string; text: string; link: string }[]>('nav-links', () => [
+  useState<
+    { prependIcon: string; text: string; link: string }[]
+  >('nav-links', () => [
     {
       prependIcon: 'fa-solid:project-diagram',
       text: 'Pojects',

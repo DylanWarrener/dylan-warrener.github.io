@@ -8,8 +8,26 @@ export default createConfigForNuxt({
 })
   // Default rules
   .append({
-    ignores: ['node_modules/**', '.nuxt/**', '.output/**', 'docs/**', 'dist/**'],
+    ignores: [
+      'node_modules/**',
+      '.nuxt/**',
+      '.output/**',
+      'docs/**',
+      'dist/**',
+    ],
     rules: {
+      'vue/first-attribute-linebreak': 'off',
+      'vue/max-attributes-per-line': [
+        'warn',
+        {
+          singleline: {
+            max: 1,
+          },
+          multiline: {
+            max: 1,
+          },
+        },
+      ],
       'vue/html-self-closing': [
         'warn',
         {
