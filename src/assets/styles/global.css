@@ -167,7 +167,7 @@ html {
 
 /* ----- TEST ----- */
 .test-background-main {
-  background-color: #00334d !important;
+  background-color: #183440 !important;
 }
 .test-main-title {
 }
@@ -180,6 +180,7 @@ html {
 .test-normal-text {
 }
 .test-btn-cta {
+  background-color: #40c4ff !important;
 }
 .test-btn-cta-hover {
 }
@@ -199,9 +200,9 @@ html {
 }
 .test-layer-raised-text {
 }
-.test-background {
+.test-background-sample {
 }
-.test-background-text {
+.test-background-sample-text {
 }
 .test-border {
 }
