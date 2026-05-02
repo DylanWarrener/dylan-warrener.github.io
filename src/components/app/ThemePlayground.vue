@@ -2,13 +2,15 @@
   <section
     class="d-flex flex-column ga-4 test-background-main pa-4"
   >
-    <h1 class="test-main-title">Main title</h1>
-    <h2 class="test-title">General Title</h2>
-    <h3 class="test-subtitle">Subtitle</h3>
-    <h3 class="test-subtitle-emphasized">
+    <h1 class="test-main-title text-h1">Main title</h1>
+    <h2 class="test-title text-h2">General Title</h2>
+    <h3 class="test-subtitle text-h3">Subtitle</h3>
+    <h4
+      class="test-subtitle-emphasized text-h4 font-italic"
+    >
       Subtitle emphasized
-    </h3>
-    <p class="test-normal-text">Normal text</p>
+    </h4>
+    <p class="test-normal-text text-body-1">Normal text</p>
 
     <div class="d-flex flex-wrap ga-4 mt-4">
       <v-btn
@@ -67,8 +69,10 @@
       </p>
     </div>
 
-    <div class="test-background">
-      <p class="test-background-text">Text on background</p>
+    <div class="test-background-sample">
+      <p class="test-background-sample-text">
+        Text on background
+      </p>
     </div>
 
     <div class="pa-4 test-border">
