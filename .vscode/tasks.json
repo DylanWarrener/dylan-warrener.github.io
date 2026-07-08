@@ -15,15 +15,12 @@
       "problemMatcher": {
         "owner": "nuxt",
         "pattern": {
-          "regexp": ".",
-          "file": 0,
-          "location": 0,
-          "message": 0
+          "regexp": "a^"
         },
         "background": {
           "activeOnStart": true,
           "beginsPattern": ".*",
-          "endsPattern": ".*(Local|Network):\\s+http://.*:3000.*"
+          "endsPattern": ".*(ready|Local|localhost|Nuxt).*"
         }
       }
     }

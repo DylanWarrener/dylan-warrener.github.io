@@ -1,49 +1,62 @@
 <template>
   <div class="hero-container w-100 position-relative">
-    <section
-      class="position-absolute top-0 left-0 w-100 h-100 px-4 px-sm-10"
-      style="border: 2px solid black"
-    >
-      <div
-        class="w-100 h-100 d-flex flex-column ga-4 pt-4"
-        style="border: 2px solid red"
+    <section class="hero-section w-100 h-100">
+      <v-container
+        fluid
+        class="hero-content h-100"
       >
-        <div class="d-flex justify-center align-center">
-          <v-chip
-            class="ma-2"
-            color="success"
-            variant="outlined"
+        <v-row
+          class="hero-row h-100"
+          align="center"
+        >
+          <v-col
+            cols="12"
+            lg="6"
+            class="hero-copy d-flex flex-column align-center align-lg-start"
           >
-            <v-icon
-              icon="mdi-circle-medium"
-              start
-            />
-            Open to opportunities
-          </v-chip>
-        </div>
+            <BaseStatusChip class="mb-8">
+              Open to opportunities
+            </BaseStatusChip>
 
-        <div class="d-flex flex-column ga-4">
-          <h1
-            class="text-inverted text-center text-h1 font-weight-bold"
+            <h1
+              class="hero-title text-center text-lg-start"
+            >
+              <span>Full-Stack</span>
+              <span>Engineer&nbsp;—</span>
+              <span class="gradient-text"
+                >Web & AI-Powered</span
+              >
+              <span>Software in the Cloud</span>
+            </h1>
+
+            <p
+              class="hero-description text-center text-lg-start mt-6"
+            >
+              I design and develop modern web and AI-powered
+              applications that are stable, scalable, and
+              built for real users.
+            </p>
+
+            <div class="mt-8 w-100">
+              <HomeHeroCtaBtns />
+            </div>
+
+            <div class="mt-10 w-100">
+              <HomeHeroTypeOfClientSelector />
+            </div>
+          </v-col>
+
+          <v-col
+            cols="12"
+            lg="6"
+            class="hero-visual d-none d-lg-flex align-center justify-center"
           >
-            <p>Full-Stack Engineer -</p>
-            <span class="gradient-text">
-              Web & AI-Powered
-            </span>
-            <p>Software in the Cloud</p>
-          </h1>
-
-          <p class="text-inverted text-center">
-            I design and develop modern web and AI-powered
-            applications that are stable, scalable, and
-            built for real users.
-          </p>
-        </div>
-
-        <HomeHeroCtaBtns />
-
-        <TypeOfClientSelector />
-      </div>
+            <div class="hero-visual-placeholder">
+              Hero visual
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
     </section>
 
     <MouseScrollIndicator />
@@ -54,7 +67,60 @@
 
 <style lang="scss" scoped>
 .hero-container {
-  height: calc(100dvh - var(--v-layout-top));
+  min-height: calc(100dvh - var(--v-layout-top));
   background-color: rgb(var(--v-theme-background));
+}
+
+.hero-section {
+  min-height: calc(100dvh - var(--v-layout-top));
+  padding-top: 6rem;
+}
+
+.hero-content {
+  max-width: 1360px;
+  padding-inline: 2rem;
+}
+
+.hero-row {
+  align-content: center;
+}
+
+.hero-copy {
+  min-height: 100%;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: clamp(3rem, 4.2vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-description {
+  max-width: 35rem;
+  color: #eaf6ff;
+  font-size: clamp(1.125rem, 1.5vw, 1.3rem);
+  line-height: 1.55;
+}
+
+.hero-visual {
+  min-height: 62vh;
+  padding-left: 2.5rem;
+}
+
+.hero-visual-placeholder {
+  width: 100%;
+  min-height: 440px;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.45);
 }
 </style>

@@ -11,6 +11,10 @@
       Subtitle emphasized
     </h4>
     <p class="test-normal-text text-body-1">Normal text</p>
+    <p class="test-link">Link text</p>
+    <p class="test-link-hover">Link text hover</p>
+    <p class="test-highlight">Highlight text</p>
+    <p class="test-disabled">Disabled text</p>
 
     <div class="d-flex flex-wrap ga-4 mt-4">
       <v-btn
@@ -32,6 +36,16 @@
         Primary CTA active
       </v-btn>
       <v-btn
+        class="test-btn-disabled"
+        variant="flat"
+        disabled
+      >
+        Disabled btn CTA
+      </v-btn>
+    </div>
+
+    <div class="d-flex flex-wrap ga-4 mt-4">
+      <v-btn
         class="test-btn-secondary"
         variant="outlined"
       >
@@ -44,11 +58,10 @@
         Secondary hover
       </v-btn>
       <v-btn
-        class="test-btn-disabled"
-        variant="flat"
-        disabled
+        class="test-btn-secondary-active"
+        variant="outlined"
       >
-        Disabled btn CTA
+        Secondary active
       </v-btn>
       <v-btn
         class="test-btn-disabled"

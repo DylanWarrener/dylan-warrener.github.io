@@ -1,6 +1,8 @@
 /* ---------- ROOT VARIABLES ---------- */
 :root {
-  --font-size-h1: 4rem; /* 40px */
+  --v-font-family: 'Manrope', sans-serif;
+
+  --font-size-h1: 6rem; /* 60px */
   --font-size-h2: 3.2rem; /* 32px */
   --font-size-h3: 2.4rem; /* 24px */
   --font-size-h4: 2rem; /* 20px */
@@ -16,15 +18,31 @@
   --font-size-high-emphasis: 1.6rem; /* use body-1 as baseline */
   --font-size-medium-emphasis: 1.4rem; /* use body-2 as baseline */
   --font-size-disabled: 1.4rem; /* use body-2 as baseline */
+
+  --transition-all: all 0.3s ease-in-out;
 }
 
 /* ---------- ROOT ELEMENTS ---------- */
-html {
+/* html {
   font-size: 62.5% !important;
+} */
+html,
+body,
+.v-application,
+.v-app,
+.v-main,
+[class^='text-'],
+[class*=' text-'],
+.v-btn,
+.v-card,
+.v-list,
+.v-field,
+.v-label {
+  font-family: 'Manrope', sans-serif !important;
 }
 
 /* ---------- VUETIFY TYPOGRAPHY ---------- */
-.text-h1 {
+/* .text-h1 {
   padding: 1.2rem 0 !important;
   font-size: var(--font-size-h1) !important;
 }
@@ -72,8 +90,7 @@ html {
 }
 .text-disabled {
   font-size: var(--font-size-disabled) !important;
-}
-/* In your global CSS */
+} */
 .v-app,
 .v-main {
   position: relative;
@@ -139,15 +156,15 @@ html {
   z-index: 9999 !important;
 }
 /* TRANSITIONS */
-.btn-icon-transition {
+/* .btn-icon-transition {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transform: translateX(0) !important;
 }
 .btn-icon-move {
   transform: translateX(25%) !important;
-}
+} */
 /* BUTTONS */
-.btn-cta {
+/* .btn-cta {
 }
 .btn-cta-icon {
   transition: transform 0.3s ease;
@@ -163,40 +180,131 @@ html {
   border-color: rgb(var(--v-theme-accent)) !important;
   box-shadow: 0 0 10px -3px rgb(var(--v-theme-accent)) !important;
   background: rgba(var(--v-theme-accent), 0.25) !important;
-}
+} */
 
 /* ----- TEST ----- */
+/* Text */
 .test-background-main {
-  background-color: #183440 !important;
+  background-color: #002f40 !important;
 }
 .test-main-title {
+  color: white !important;
+  font-weight: 800 !important;
 }
 .test-title {
+  color: #eaf6ff !important;
+  font-weight: 650 !important;
 }
 .test-subtitle {
+  color: #a6b8bf !important;
 }
 .test-subtitle-emphasized {
+  color: #40c4ff !important;
+  font-weight: 500 !important;
+  opacity: 0.8 !important;
 }
 .test-normal-text {
+  color: #a6b8bf !important;
 }
+.test-link {
+  color: #80d8ff !important;
+  text-decoration: underline !important;
+}
+.test-link-hover {
+  color: #b2ebff !important;
+  text-decoration: underline !important;
+}
+.test-highlight {
+  background-color: rgba(64, 196, 255, 0.06) !important;
+  color: #eaf6ff !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 4px !important;
+}
+.test-disabled {
+  color: rgba(234, 246, 255, 0.4) !important;
+  cursor: not-allowed !important;
+}
+/* CTA Button */
 .test-btn-cta {
+  transition: all 0.3s ease-in-out !important;
   background-color: #40c4ff !important;
 }
+.test-btn-cta:hover {
+  transform: translateY(-1px);
+  background-color: #4ea0cc !important;
+}
+.test-btn-cta:active {
+  transform: translateY(1px);
+  background-color: #356e8c !important;
+}
 .test-btn-cta-hover {
+  background-color: #4ea0cc !important;
 }
 .test-btn-cta-active {
+  background-color: #356e8c !important;
 }
+/* Secondary Button */
 .test-btn-secondary {
+  color: #eaf6ff !important; /*css theme contrast*/
+  border: 1px solid #698895 !important; /*css theme separation*/
+}
+.test-btn-secondary:hover {
+  color: #40c4ff !important;
+  border-color: #40c4ff !important;
+  background-color: rgba(
+    64,
+    196,
+    255,
+    0.08
+  ) !important; /*css theme accent*/
+}
+.test-btn-secondary:active {
+  border-color: #40c4ff !important;
+  color: #40c4ff !important;
+  background-color: rgba(
+    64,
+    196,
+    255,
+    0.14
+  ) !important; /*css theme accent*/
 }
 .test-btn-secondary-hover {
+  color: #40c4ff !important;
+  border-color: #40c4ff !important;
+  background-color: rgba(
+    64,
+    196,
+    255,
+    0.08
+  ) !important; /*css theme accent*/
+}
+.test-btn-secondary-active {
+  border-color: #40c4ff !important;
+  color: #40c4ff !important;
+  background-color: rgba(
+    64,
+    196,
+    255,
+    0.12
+  ) !important; /*css theme accent*/
 }
 .test-btn-disabled {
+  cursor: not-allowed !important;
 }
 .test-layer {
+  padding: 1.6rem !important;
+  border-radius: 12px !important;
+  background-color: #395b6a !important; /*Layer theme*/
+  color: #ffffff !important; /*contrast theme*/
 }
 .test-layer-text {
 }
 .test-layer-raised {
+  padding: 1.6rem !important;
+  border-radius: 12px !important;
+  background-color: #4f7280 !important; /*layer raised theme*/
+  color: #ffffff !important; /*contrast theme*/
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
 }
 .test-layer-raised-text {
 }

@@ -1,10 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // nuxt.config.ts
-import type { NuxtConfig } from 'nuxt/schema'
+import { defineNuxtConfig } from 'nuxt/config'
 
-export const baseConfig: NuxtConfig = {
+export const baseConfig = defineNuxtConfig({
   srcDir: 'src/',
   compatibilityDate: '2025-07-10',
+
   alias: {
     '@/interfaces': './src/interfaces',
     '@/types': './src/types',
@@ -20,6 +21,7 @@ export const baseConfig: NuxtConfig = {
     '@/stores': './src/stores',
     '@/utils': './src/utils',
   },
+
   app: {
     baseURL: '/',
     head: {
@@ -33,10 +35,26 @@ export const baseConfig: NuxtConfig = {
             'Portfolio for showcasing my projects, skills, and knowledge.',
         },
       ],
-      link: [{ rel: 'icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', href: '/favicon.ico' },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com',
+        },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: '',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap',
+        },
+      ],
     },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
+
   components: [
     {
       path: '~/components/base',
@@ -47,53 +65,59 @@ export const baseConfig: NuxtConfig = {
       pathPrefix: false,
     },
   ],
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
-    '@pinia/nuxt', // Pinia auto-registeyeah
+    '@pinia/nuxt',
     'vuetify-nuxt-module',
   ],
+
   typescript: {
-    typeCheck: false, // IMPORTANT: don't typecheck during nuxt build/generate otherwuse errors occur
+    typeCheck: false,
     strict: true,
     shim: false,
   },
+
   css: [
-    'vuetify/styles', // 1. Vuetify's styles (lowest priority)
-    '@/assets/styles/variables.scss', // 2. SCSS overrides (if any, e.g. color SASS vars)
-    '@/assets/styles/global.css', // 3. Your custom styles (highest priority)
+    'vuetify/styles',
+    '@/assets/styles/variables.scss',
+    '@/assets/styles/global.css',
   ],
+
   vuetify: {
     moduleOptions: {
-      styles: 'sass', // Enables SASS variable customization
+      styles: 'sass',
     },
     vuetifyOptions: './vuetify.config.ts',
   },
+
   vite: {
     define: {
-      'process.env.DEBUG': false, // Required for Vuetify
+      'process.env.DEBUG': false,
     },
     vueJsx: {
       mergeProps: true,
     },
   },
+
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: [], // extra dynamic routes if needed
+      routes: [],
     },
   },
+
   routeRules: {
     '/**': { prerender: true },
   },
+
   runtimeConfig: {
-    // server-side only.
-    public: {
-      // server- and client-side.
-    },
+    public: {},
   },
+
   build: {
     transpile: ['vuetify'],
   },
-}
+})

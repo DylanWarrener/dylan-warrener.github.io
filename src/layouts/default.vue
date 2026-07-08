@@ -1,11 +1,8 @@
 <template>
-  <v-app
-    :theme="theme"
-    style="border: 2px solid orange"
-  >
+  <v-app :theme="theme">
     <!-- <AppHeader /> -->
     <!-- <AppNavigation v-if="isMobile" /> -->
-    <v-main style="border: 2px solid black">
+    <v-main>
       <NuxtPage />
     </v-main>
     <!-- <AppFooter /> -->

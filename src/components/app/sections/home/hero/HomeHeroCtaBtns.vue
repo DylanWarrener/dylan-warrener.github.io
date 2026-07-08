@@ -1,10 +1,11 @@
 <template>
-  <div class="d-flex flex-wrap justify-center ga-4">
+  <div
+    class="d-flex flex-wrap justify-center justify-lg-start ga-4 ga-sm-4"
+  >
     <v-btn
-      class="btn-cta text-white"
+      class="test-btn-cta"
       variant="flat"
       size="large"
-      color="surface"
     >
       <span class="mr-2"> View Projects </span>
       <v-icon
@@ -15,9 +16,8 @@
     </v-btn>
 
     <v-btn
-      class="btn-non-cta"
+      class="test-btn-secondary"
       variant="outlined"
-      border="inverted sm"
       size="large"
     >
       <span class="mr-2"> Download CV </span>

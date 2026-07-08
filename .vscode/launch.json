@@ -2,28 +2,29 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Frontend",
-      "type": "chrome",
+      "type": "node",
       "request": "launch",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/src",
-      "preLaunchTask": "dev ready",
-      "sourceMaps": true
+      "name": "server: nuxt",
+      "program": "${workspaceFolder}/node_modules/nuxt/bin/nuxt.mjs",
+      "args": ["dev", "--inspect=9230"],
+      "outputCapture": "std",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
     },
     {
-      "name": "Backend",
-      "type": "node",
-      "request": "attach",
-      "port": 9230,
-      "restart": true,
-      "skipFiles": ["<node_internals>/**"]
+      "type": "chrome",
+      "request": "launch",
+      "name": "client: chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "runtimeArgs": ["--profile-directory=Profile 2"],
+      "userDataDir": false
     }
   ],
   "compounds": [
     {
       "name": "Full-stack: client + server",
-      "configurations": ["Frontend", "Backend"],
-      "stopAll": true
+      "configurations": ["server: nuxt", "client: chrome"]
     }
   ]
 }

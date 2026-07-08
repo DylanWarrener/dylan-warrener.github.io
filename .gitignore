@@ -1,8 +1,7 @@
 .github
 .nuxt
 .output
-.vscode/launch.json
-.vscode/tasks.json
+.vscode/*
 .env
 node_modules
 dist

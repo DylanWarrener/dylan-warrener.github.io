@@ -6,4 +6,4 @@ docs/
 dist/
 nitro.json
 src/public/
-.vscode/
+.vscode/chrome-debug-profile
