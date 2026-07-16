@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title description">
+  <title id="title">Project visual placeholder two</title>
+  <desc id="description">A clearly labelled abstract wireframe reserved for an approved project screenshot.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#093c4e"/>
+      <stop offset="1" stop-color="#012635"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#40c4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#background)"/>
+  <g fill="none" stroke="#b2d9ea" stroke-opacity=".16">
+    <path d="M0 82h800M0 418h800"/>
+    <path d="M82 0v500M718 0v500"/>
+  </g>
+  <rect x="94" y="96" width="612" height="306" rx="18" fill="#002f40" stroke="#40c4ff" stroke-opacity=".28"/>
+  <rect x="118" y="124" width="564" height="48" rx="10" fill="#001f2b"/>
+  <circle cx="146" cy="148" r="7" fill="#40c4ff"/>
+  <rect x="170" y="140" width="156" height="16" rx="8" fill="#b2d9ea" fill-opacity=".24"/>
+  <rect x="118" y="196" width="348" height="178" rx="12" fill="#0b4356"/>
+  <rect x="490" y="196" width="192" height="82" rx="12" fill="#0b4356"/>
+  <rect x="490" y="292" width="192" height="82" rx="12" fill="#0b4356"/>
+  <g fill="none" stroke="url(#accent)" stroke-width="7" stroke-linecap="round">
+    <path d="M158 330h54v-76h54v44h54v-70h54v102h54"/>
+    <circle cx="586" cy="237" r="20"/>
+    <path d="M574 237l8 8 17-18"/>
+  </g>
+  <g fill="#eaf6ff" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="52" font-size="18" font-weight="700" letter-spacing="2">PROJECT VISUAL PLACEHOLDER</text>
+    <text x="400" y="448" font-size="15" fill="#b2d9ea">Replace with an approved public screenshot</text>
+  </g>
+</svg>
