@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title description">
+  <title id="title">Project visual placeholder three</title>
+  <desc id="description">A clearly labelled abstract wireframe reserved for an approved project screenshot.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b4356"/>
+      <stop offset="1" stop-color="#012635"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#background)"/>
+  <g fill="none" stroke="#b2d9ea" stroke-opacity=".16">
+    <path d="M0 86h800M0 414h800"/>
+    <path d="M86 0v500M714 0v500"/>
+  </g>
+  <rect x="90" y="92" width="620" height="316" rx="18" fill="#002f40" stroke="#40c4ff" stroke-opacity=".28"/>
+  <rect x="90" y="92" width="620" height="58" rx="18" fill="#001f2b"/>
+  <rect x="116" y="115" width="118" height="14" rx="7" fill="#eaf6ff" fill-opacity=".65"/>
+  <g fill="#b2d9ea" fill-opacity=".38">
+    <rect x="490" y="115" width="48" height="14" rx="7"/>
+    <rect x="550" y="115" width="48" height="14" rx="7"/>
+    <rect x="610" y="115" width="72" height="14" rx="7"/>
+  </g>
+  <rect x="116" y="176" width="566" height="126" rx="12" fill="#0b4356"/>
+  <circle cx="596" cy="239" r="45" fill="url(#accent)" fill-opacity=".55"/>
+  <path d="M144 263l64-54 54 34 75-58 65 78" fill="none" stroke="url(#accent)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#0b4356">
+    <rect x="116" y="326" width="174" height="54" rx="10"/>
+    <rect x="304" y="326" width="174" height="54" rx="10"/>
+    <rect x="492" y="326" width="190" height="54" rx="10"/>
+  </g>
+  <g fill="#eaf6ff" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="52" font-size="18" font-weight="700" letter-spacing="2">PROJECT VISUAL PLACEHOLDER</text>
+    <text x="400" y="448" font-size="15" fill="#b2d9ea">Replace with an approved public screenshot</text>
+  </g>
+</svg>
