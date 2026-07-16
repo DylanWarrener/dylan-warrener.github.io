@@ -1,7 +1,7 @@
 <template>
   <main class="d-flex flex-column w-100">
     <HomeHero cols="12" />
-    <!-- <HomeCredibility cols="12" /> -->
+    <HomeCredibility />
     <!-- <HomeFeaturedProjects cols="12" /> -->
     <!-- <HomeHowIWork cols="12" /> -->
     <!-- <HomeNow cols="12" /> -->
